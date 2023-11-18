@@ -6,6 +6,7 @@ const autenticacaoController = require('../controller/autenticacaoController');
 
 router.get('/', anotacaoController.indexView);
 router.get('/home', autenticacaoController.verificarAutenticacao, anotacaoController.homeView);
-router.post('/cadastrar_anotacao', autenticacaoController.verificarAutenticacao, anotacaoController.cadastrarAnotacao)
+router.post('/cadastrar_anotacao', autenticacaoController.verificarAutenticacao, anotacaoController.cadastrarAnotacao);
+router.post('/remover_anotacao/:id', autenticacaoController.verificarAutenticacao, anotacaoController.removerAnotacao);
 
 module.exports = router;
