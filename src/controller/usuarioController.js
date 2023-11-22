@@ -27,7 +27,29 @@ function listarUsuarios(req, res) {
     });
 }
 
+function atualizarUsuario(req, res) {
+    console.log("Atualizando usuário...")
+    let idUsuario = req.params.id;
+    let novosDados = {
+        email: req.params.email,
+        senha: req.params.senha,
+        nome: req.params.nome,
+        data_nascimento: req.params.data_nascimento
+    }
+
+    Usuario.update(novosDados, { where: { id: idUsuario } })
+        .then(() => {
+            res.json({ mensagem: "Usuário atualizado com sucesso!" });
+        })
+        .catch((err) => {
+            console.log(err);
+            res.json({ mensagem: "Erro ao atualizar o usuário." });
+        });
+}
+
+
 module.exports = {
     cadastrarUsuario,
-    listarUsuarios
+    listarUsuarios,
+    atualizarUsuario
 }
