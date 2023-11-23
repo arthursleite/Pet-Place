@@ -16,7 +16,7 @@ const Produto = database.define('produto', {
         type: Sequelize.STRING,
         allowNull: false
     },
-    /*subtitulo*/categoria: {
+    /*subtitulo*/categoria: { //orcamento
         type: Sequelize.STRING,
         allowNull: false
     },
