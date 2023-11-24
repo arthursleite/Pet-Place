@@ -27,7 +27,7 @@ function cadastrarProduto(req, res) {
     let produto = {
         produto: req.body.produto,
         id_usuario: req.session.usuario.id,
-        categoria: req.body.categoria,
+        categoria: req.body.categoria, //orcamento
         quantidade: req.body.quantidade,
         data_vencimento: req.body.data_vencimento,
         indicador_ativo: 1,
