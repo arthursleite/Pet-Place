@@ -12,19 +12,19 @@ const Produto = database.define('produto', {
         type: Sequelize.INTEGER,
         allowNull: false
     },
-    /*titulo*/produto: {
+        produto: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    /*subtitulo*/categoria: {
+        categoria: { 
         type: Sequelize.STRING,
         allowNull: false
     },
-    /*texto*/data_vencimento: {
+        data_vencimento: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    /*texto*/quantidade: {
+        quantidade: {
         type: Sequelize.STRING,
         allowNull: false
     },    

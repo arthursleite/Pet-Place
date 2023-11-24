@@ -25,7 +25,7 @@ function cadastrarProduto(req, res) {
     let produto = {
         produto: req.body.produto,
         id_usuario: req.session.usuario.id,
-        categoria: req.body.categoria,
+        categoria: req.body.categoria, //orcamento
         quantidade: req.body.quantidade,
         data_vencimento: req.body.data_vencimento,
         indicador_ativo: 1,
@@ -40,6 +40,26 @@ function cadastrarProduto(req, res) {
         res.render("home.html", { erro_cadastrar_produto });
     });
 
+}
+
+function editarProduto(req, res) {
+    console.log("Editando produto...")
+    let idProduto = req.params.id;
+    let novosDados = {
+        produto: req.params.produto,
+        categoria: req.params.categoria,
+        quantidade: req.params.quantidade,
+        data_vencimento: req.params.data_vencimento,
+    }
+
+    Produto.update(novosDados, { where: { id: idProduto } })
+        .then(() => {
+            res.json({ mensagem: "Produto atualizado com sucesso!" });
+        })
+        .catch((err) => {
+            console.log(err);
+            res.json({ mensagem: "Erro ao atualizar o Produto." });
+        });
 }
 
 function removerProduto(req, res) {
@@ -62,5 +82,6 @@ module.exports = {
     indexView,
     homeView,
     cadastrarProduto,
+    editarProduto,
     removerProduto
 }

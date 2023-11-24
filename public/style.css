@@ -1,9 +1,373 @@
+
+@media (max-width: 767.98px) {
+    .sidebar {
+        top: 11.5rem;
+        padding: 0;
+    }
+}
+    
+@media (min-width: 767.98px) {
+    .navbar {
+        top: 0;
+        position: sticky;
+        z-index: 999;
+    }
+}
+
 .bg-image {
     height: 100%; 
-    background-image: url('img/nathalia-rosa-P1SdQAhcJz8-unsplash.jpg');
+    background-image: url('img/fundo3.jpg');
+    /* background-color: #006414; */
     background-size: cover;
 }
 
+/* --------------------------------------Index.html------------------------------------- */
+.login{
+    background-color: #e1e1e1;
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+
+.titulo{
+    text-align: center;
+    color: #006414;
+}
+
+.btnAcessar{
+    width: 100%;
+    height: 5vh;
+    background-color: #006414;
+    border-radius: 2rem;
+    color: white;
+    border: none;
+}
+
+.btnCadastrar{
+    width: 100%;
+    height: 5vh;
+    background-color: #efa229;
+    border-radius: 2rem;
+    color: white;
+    border: none;
+}
+
+/* --------------------------------------Home.html------------------------------------- */
+
+
+/* -------------Navbar----------------------------------------------------------------- */
+
+.navbar {
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .1);
+    background-image: url('img/fundo2.jpg');
+}
+
+.name_logo {
+    width: 10rem;
+    font-size: 2rem;
+    color: #006414;
+}
+
+.btnLink{
+    margin: 0.5rem;
+}
+
+.navbarColor{
+    color: #efa229;
+    text-decoration: none;
+}
+
+.nav-item a{
+    color: #efa229;
+    text-decoration: none;
+    width: 20vw;
+    margin-top: 1rem;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    color: #efa229;
+    border: none;
+
+}
+
+.nav-item a:hover{
+  color: #006414;
+  border-bottom: 2px solid #006414;
+}
+
+
+.btn-outline-success1{
+    color: #efa229 !important;
+}
+
+/* -------------Bem-vindo----------------------------------------------------------------- */
+
+.bem-vindo{
+    height: 70vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    background-color: #efa229
+
+  }
+
+.informacoes-bem-vindo{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding-left: 1rem;
+  }
+
+  .informacoes-bem-vindo h3{
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .textos-bem-vindo{
+    color: white;
+    text-align: center;
+    text-shadow:  10px 5px 5px rgba(0, 0, 0, 0.493);
+  }
+
+  .textos-bem-vindo h4{
+    width: 40vw;
+  }
+
+  /* -------------SObre-nos------------------------------------------------------------- */
+
+  #sobre-nos h1{
+    width: 30vw;
+    margin: 0 auto;
+    font-size: 2.5rem;
+    border-bottom: 3px dotted #006414;
+    border-radius: 1rem;
+  }
+
+  .content-2{
+    background-color: white;
+    height: 100vh;
+    position: relative;
+  }
+
+  .content-2 .textos-content-2{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 4rem ;
+
+  }
+
+  .content-2 h1{
+    text-align: center;
+    color: #000;
+    z-index: 10;
+  }
+
+
+  .content-2 p:nth-child(1){
+     width: 60vw;
+     text-align: justify;
+     float: right;
+     margin-top: 30px;
+     margin-right: 3rem;
+  }
+
+  .content-2 p:nth-child(1)::after{
+    content: "";
+    width: 100%;
+    height: 0.2rem;
+    background: #efa229;
+    display: block;
+   
+  }
+
+  .content-2 p:nth-child(2){
+    width: 50vw;
+    text-align: justify;
+    align-self: flex-start;
+    margin-left: 3rem;
+  }
+
+  .content-2 p:nth-child(2)::before{
+    content: "";
+    width: 100%;
+    height: 0.2rem;
+    background: #efa229;
+    display: block;
+    margin-top: 5rem;
+
+  }
+
+  .content, .content-2{
+    width: 95%;
+    height: 60vh;
+    margin: 1rem auto;
+    padding: 1rem;
+  }
+
+/* -------------Nova Lista---------------------------------------------------------------- */
+
+.text-dangerGren{
+     color: black !important;
+}
+
+.border-dangerGrenn{
+    color: #006414 !important;
+}
+
+.bg-danger0{ 
+    background-color: #ffffff !important;
+}
+.bg-danger1{ 
+    background-color: #ff7b7d !important;
+}
+.bg-danger2{ 
+    background-color: #ffcb71 !important;
+}
+.bg-danger3{ 
+    background-color: #fffb7e !important;
+}
+.bg-danger4{ 
+    background-color: #a1ff82 !important;
+}
+.bg-danger5{ 
+    background-color: #83ffb3 !important;
+}
+.bg-danger6{ 
+    background-color: #85fff5 !important;
+}
+.bg-danger7{ 
+    background-color: #8dddff !important;
+}
+.bg-danger8{ 
+    background-color: #74a9ff !important;
+}
+.bg-danger9{ 
+    background-color: #c588ff !important;
+}
+.bg-danger10{ 
+    background-color: #ff8bf5 !important;
+}
+.bg-danger11{ 
+    background-color: #ff8bbb !important;
+}
+
+.btn-success1{
+    background-color: #006414 !important;
+    color: white !important;
+}
+
+.btn-danger5{
+  background-color: red in !important;
+}
+
+  /* -------------Footer---------------------------------------------------------------- */
+
+  #footer{
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #006414;
+    color: white;
+  }
+  
+  .contatos-footer{
+    width: 30vw;
+    height: 50vh;
+    margin-left: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  #footer h4{
+    margin-bottom: 2rem;
+    text-align: start;
+    color: white;
+  }
+  
+  .contatos-footer .informacoes-maps{
+    display: flex;
+    gap: 0.5rem;
+  }
+
+
+  .suport-footer{
+    width: 30vw;
+    height: 50vh;
+    margin-left: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .suport-footer .suporte{
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .suport-footer .suporte a{
+    text-decoration: none;
+    color: white;
+  }
+  
+  .suport-footer button{
+    width: 12vw;  
+    height: 5vh;
+    border-radius: 0.3rem;
+    background-color: #efa229;
+    border: none;
+    margin-bottom: 1rem;
+    color: white;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+  
+   /* -------------Configuração---------------------------------------------------------- */
+
+   .bg-image2{
+    height: 100%; 
+    background-image: url('img/fundo1.jpg');
+    background-size: cover;
+}
+
+
+  .configuracao{
+    background-color: #e1e1e1;
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+
+.titulo-config{
+    text-align: center;
+    color: #006414;
+}
+
+.atualizar{
+  width: 40vw;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnAtualizar{
+    width: 100%;
+    height: 5vh;
+    background-color: #efa229;
+    border-radius: 2rem;
+    color: white;
+    border: none;
+}
+
+
+
+/* 
 .sidebar {
     position: fixed;
     top: 0;
@@ -13,31 +377,12 @@
     padding: 90px 0 0;
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
     z-index: 99;
-}
+} */
 
-@media (max-width: 767.98px) {
-    .sidebar {
-        top: 11.5rem;
-        padding: 0;
-    }
-}
-    
-.navbar {
-    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .1);
-}
-
-@media (min-width: 767.98px) {
-    .navbar {
-        top: 0;
-        position: sticky;
-        z-index: 999;
-    }
-}
-
-.sidebar .nav-link {
+/* .sidebar .nav-link {
     color: #333;
 }
 
 .sidebar .nav-link.active {
     color: #0d6efd;
-}
+} */
