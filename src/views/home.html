@@ -93,7 +93,8 @@
                         <div class="col-12">
                             <div class="mt-1">
                                 <label for="data_vencimento" class="form-label">Data Vencimento:</label>
-                                <textarea class="form-control" rows="3" id="data_vencimento" name="data_vencimento"></textarea>
+                                <textarea class="form-control" rows="3" id="data_vencimento"
+                                    name="data_vencimento"></textarea>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-success w-100 mt-2">Adicionar</button>
@@ -110,6 +111,12 @@
                                 <h5 class="card-title">{{categoria}}</h5>
                                 <p class="card-text">{{quantidade}}</p>
                                 <p class="card-text">{{data_vencimento}}</p>
+                                <form action="/editar_produto/:id" method="post">
+                                    <a href="./editarProduto.html">
+                                        <button type="submit" class="btn btn-danger">Editar</button>
+                                    </a>
+                                </form>
+                                <br>
                                 <!-- Add a form for removing the annotation -->
                                 <form action="/remover_produto/{{id}}" method="post">
                                     <button type="submit" class="btn btn-danger">Remover</button>

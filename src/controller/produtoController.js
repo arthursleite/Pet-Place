@@ -44,6 +44,26 @@ function cadastrarProduto(req, res) {
 
 }
 
+function editarProduto(req, res) {
+    console.log("Editando produto...")
+    let idProduto = req.params.id;
+    let novosDados = {
+        produto: req.params.produto,
+        categoria: req.params.categoria,
+        quantidade: req.params.quantidade,
+        data_vencimento: req.params.data_vencimento,
+    }
+
+    Produto.update(novosDados, { where: { id: idProduto } })
+        .then(() => {
+            res.json({ mensagem: "Produto atualizado com sucesso!" });
+        })
+        .catch((err) => {
+            console.log(err);
+            res.json({ mensagem: "Erro ao atualizar o Produto." });
+        });
+}
+
 function removerProduto(req, res) {
     const produtoId = req.params.id; // Assuming you pass the annotation ID as a route parameter
     Produto.destroy({
@@ -65,5 +85,6 @@ module.exports = {
     configView,
     homeView,
     cadastrarProduto,
+    editarProduto,
     removerProduto
 }
