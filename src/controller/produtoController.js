@@ -4,9 +4,7 @@ function indexView(req, res) {
     res.render('index.html');
 }
 
-function configView(req, res) {
-    res.render('configuracao.html');
-}
+
 
 function homeView(req, res) {
 
@@ -62,7 +60,6 @@ function removerProduto(req, res) {
 
 module.exports = {
     indexView,
-    configView,
     homeView,
     cadastrarProduto,
     removerProduto

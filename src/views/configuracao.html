@@ -10,16 +10,32 @@
     </head>
     <body>
         <h1>Configurações</h1>
-        <form action="/src/views/configuracao.html" method="post">
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email"><br>
-            <label for="senha">Senha:</label><br>
-            <input type="password" id="senha" name="senha"><br>
-            <label for="nome">Nome:</label><br>
-            <input type="text" id="nome" name="nome"><br>
-            <label for="data_nascimento">Data de Nascimento:</label><br>
-            <input type="date" id="data_nascimento" name="data_nascimento"><br>
-            <input type="submit" value="Atualizar">
+        <form method="post" action="/src/views/configuracao.html">
+            <input type="hidden" name="id" value="{{usuario.id}}">
+            <div class="row">
+                <div class="col-3">
+                    <label class="form-label" for="nome">Nome</label>
+                    <input class="form-control" type="text" id="nome" name="nome" value="{{usuario.nome}}">
+                </div>
+                
+                
+                <div class="col-3">
+                    <label class="form-label" for="email">email</label>
+                    <input class="form-control" type="text" id="email" name="email" value="{{usuario.email}}">
+                </div>
+                <div class="col-3">
+                    <label class="form-label" for="senha">senha</label>
+                    <input class="form-control" type="password" id="senha" name="senha" value="{{usuario.senha}}">
+                </div>
+                <div class="col-3">
+                    <label class="form-label" for="data_nascimento">Data de nascimento</label>
+                    <input class="form-control" type="date" id="data_nascimento" name="data_nascimento" value="{{usuario.data_nascimento}}">
+                </div>
+            </div>
+            
+            <div class="d-grid mt-3">
+                <button type="submit" class="btn btn-primary btn-block">Salvar</button>
+            </div>
         </form>
     </body>
 </html>

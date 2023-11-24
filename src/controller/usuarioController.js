@@ -27,15 +27,16 @@ function listarUsuarios(req, res) {
     });
 }
 
-function atualizarUsuario(req, res) {
+/*function atualizarUsuario(req, res) {
     console.log("Atualizando usuário...")
     let idUsuario = req.params.id;
     let novosDados = {
-        email: req.params.email,
-        senha: req.params.senha,
-        nome: req.params.nome,
-        data_nascimento: req.params.data_nascimento
+        email: req.body.email,
+        senha: req.body.senha,
+        nome: req.body.nome,
+        data_nascimento: req.body.data_nascimento
     }
+    console.log(JSON.stringify(novosDados));
 
     Usuario.update(novosDados, { where: { id: idUsuario } })
         .then(() => {
@@ -45,11 +46,49 @@ function atualizarUsuario(req, res) {
             console.log(err);
             res.json({ mensagem: "Erro ao atualizar o usuário." });
         });
+}*/
+
+function configView(req, res){
+        res.render('configuracao.html');
+    
+}
+
+
+function atualizarUsuario(req, res) {
+    let usuario = {
+        email: req.body.email,
+        senha: req.body.senha,
+        nome: req.body.nome,
+        data_nascimento: req.body.data_nascimento,
+    }
+    Usuario.update(
+      usuario,
+      {
+        where: {
+          id: req.body.id,
+        },
+      }
+    ).then(function (sucesso) {
+        console.log(JSON.stringify(usuario));
+        res.json({ mensagem: "Usuário atualizado com sucesso!" });
+    })
+    .catch(function (erro) {
+        res.json({ mensagem: `Erro ao atualizar o usuário. ${erro}` });
+    });
+
+}
+
+function testePost(req, res) {
+    console.log("Teste post");
+    console.log(req.body);
+    res.json({ mensagem: "Teste post" });
 }
 
 
 module.exports = {
     cadastrarUsuario,
     listarUsuarios,
-    atualizarUsuario
+    configView,
+    atualizarUsuario,
+    testePost
 }
