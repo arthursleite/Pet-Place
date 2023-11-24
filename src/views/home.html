@@ -65,7 +65,7 @@
                     <div class="textos-bem-vindo">
                         <h1>Bem-vindo a SmartList </h1>
                         <h2>Organizadora de listas</h2>
-                        <h5>Na SmartList, entendemos que a vida é uma série de listas – seja para a despensa, o presente perfeito ou a próxima leitura envolvente. É por isso que criamos uma plataforma que simplifica e aprimora suas experiências de compra, tornando cada lista uma jornada intuitiva e personalizada.</h5>
+                        <h5>Na SmartList, entendemos que a vida é uma série de listas seja para a despensa, o presente perfeito ou a próxima leitura envolvente. É por isso que criamos uma plataforma que simplifica e aprimora suas experiências de compra, tornando cada lista uma jornada intuitiva e personalizada.</h5>
                     </div>
                 </div>
             </section>
@@ -131,7 +131,8 @@
                         <div class="col-12">
                             <div class="mt-1">
                                 <label for="data_vencimento" class="form-label">Data Vencimento:</label>
-                                <textarea class="form-control" rows="3" id="data_vencimento" name="data_vencimento"></textarea>
+                                <textarea class="form-control" rows="3" id="data_vencimento"
+                                    name="data_vencimento"></textarea>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-success1 w-100 mt-2">Adicionar</button>
@@ -148,6 +149,11 @@
                         <h5 class="card-text">Orçamento: {{categoria}}</h5>
                       <h5 class="card-text">Quantidade: {{quantidade}}</h5>
                       <p class="card-text">Data de Vencimento: {{data_vencimento}}</p>
+                      <form action="/editar_produto/:id" method="post">
+                        <a href="./editarProduto.html">
+                            <button type="submit" class="btn btn-danger">Editar</button>
+                        </a>
+                    </form>
                       <form action="/remover_produto/{{id}}" method="post">
                         <button type="submit" class="btn btn-danger5">Remover</button>
                       </form>
