@@ -4,8 +4,6 @@ function indexView(req, res) {
     res.render('index.html');
 }
 
-
-
 function homeView(req, res) {
 
     Produto.findAll({
@@ -63,7 +61,7 @@ function editarProduto(req, res) {
 }
 
 function removerProduto(req, res) {
-    const produtoId = req.params.id; // Assuming you pass the annotation ID as a route parameter
+    const produtoId = req.params.id; 
     Produto.destroy({
         where: {
             id: produtoId,

@@ -27,26 +27,6 @@ function listarUsuarios(req, res) {
     });
 }
 
-/*function atualizarUsuario(req, res) {
-    console.log("Atualizando usuário...")
-    let idUsuario = req.params.id;
-    let novosDados = {
-        email: req.body.email,
-        senha: req.body.senha,
-        nome: req.body.nome,
-        data_nascimento: req.body.data_nascimento
-    }
-    console.log(JSON.stringify(novosDados));
-
-    Usuario.update(novosDados, { where: { id: idUsuario } })
-        .then(() => {
-            res.json({ mensagem: "Usuário atualizado com sucesso!" });
-        })
-        .catch((err) => {
-            console.log(err);
-            res.json({ mensagem: "Erro ao atualizar o usuário." });
-        });
-}*/
 
 function configView(req, res){
         res.render('configuracao.html');
@@ -76,12 +56,6 @@ function atualizarUsuario(req, res) {
         res.json({ mensagem: `Erro ao atualizar o usuário. ${erro}` });
     });
 
-}
-
-function testePost(req, res) {
-    console.log("Teste post");
-    console.log(req.body);
-    res.json({ mensagem: "Teste post" });
 }
 
 
