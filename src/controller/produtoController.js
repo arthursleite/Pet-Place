@@ -4,7 +4,7 @@ function indexView(req, res) {
     res.render('index.html');
 }
 
-function homeView(req, res) {
+function listarProduto(req, res) {
 
     Produto.findAll({
         where: {
@@ -78,7 +78,7 @@ function removerProduto(req, res) {
 
 module.exports = {
     indexView,
-    homeView,
+    listarProduto,
     cadastrarProduto,
     editarProduto,
     removerProduto
