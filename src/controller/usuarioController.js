@@ -27,7 +27,6 @@ function listarUsuarios(req, res) {
     });
 }
 
-
 function configView(req, res){
         res.render('configuracao.html');
     
@@ -56,6 +55,12 @@ function atualizarUsuario(req, res) {
         res.json({ mensagem: `Erro ao atualizar o usuário. ${erro}` });
     });
 
+}
+
+function testePost(req, res) {
+    console.log("Teste post");
+    console.log(req.body);
+    res.json({ mensagem: "Teste post" });
 }
 
 

@@ -20,6 +20,8 @@ app.use(session({
     saveUninitialized: false
 }))
 
+
+app.use('/', require('./src/routes/produtoRoutes'));
 app.use('/', require('./src/routes/usuarioRoutes'));
 app.use('/', require('./src/routes/autenticacaoRoutes'));
 
