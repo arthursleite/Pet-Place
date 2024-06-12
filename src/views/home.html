@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="/public/img/logo1.png"type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/app.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
@@ -17,7 +16,7 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <h1 class="name_logo">SmartList</h1> 
+                <h1 class="name_logo">Pet Place</h1>
              </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -56,28 +55,27 @@
     </nav>
     <div class="container-fluid">
         <div class="row">
-
             <section class="bem-vindo">
                 <div class="informacoes-bem-vindo">
                     <div class="textos-bem-vindo">
-                        <h1>Bem-vindo a SmartList </h1>
-                        <h2>Organizadora de listas</h2>
-                        <h5>Na SmartList, entendemos que a vida é uma série de listas seja para a despensa, o presente perfeito ou a próxima leitura envolvente. É por isso que criamos uma plataforma que simplifica e aprimora suas experiências de compra, tornando cada lista uma jornada intuitiva e personalizada.</h5>
+                        <h1>Bem-vindo a Pet Place</h1>
+                        <h2>Organizadora de listas de produtos para pets</h2>
+                        <h5>Na Pet Place, entendemos que cuidar de um pet envolve uma série de listas, seja para a alimentação, os brinquedos, os medicamentos ou os acessórios. É por isso que criamos uma plataforma que simplifica e aprimora suas experiências de compra, tornando cada lista uma jornada intuitiva e personalizada.</h5>
                     </div>
                 </div>
             </section>
-
+    
             <section id="sobre-nos" class="content-2">
         
-                <h1 >Sobre nós</h1>
+                <h1>Sobre nós</h1>
                 <div class="textos-content-2">
-                  <p>A SmartList é mais do que um aplicativo de lista de compras; é o seu parceiro inteligente na organização de todas as suas necessidades de compra. Quer esteja planejando o cardápio semanal, preparando-se para um evento especial ou apenas mantendo sua casa abastecida, a SmartList está aqui para simplificar o processo.</p>
+                  <p>A Pet Place é mais do que um aplicativo de lista de compras para pets; é o seu parceiro inteligente na organização de todas as suas necessidades de compra para o seu pet. Quer esteja planejando a alimentação semanal, preparando-se para um evento especial ou apenas mantendo sua casa abastecida, a Pet Place está aqui para simplificar o processo.</p>
                   
-                  <p>Transforme suas compras em experiências inteligentes com a SmartList. Descubra o poder da organização simplificada e comece a desfrutar de uma vida sem complicações. Baixe agora e faça de cada compra uma experiência inteligente!</p>
+                  <p>Transforme suas compras em experiências inteligentes com a Pet Place. Descubra o poder da organização simplificada e comece a desfrutar de uma vida sem complicações. Baixe agora e faça de cada compra uma experiência inteligente!</p>
                 </div>  
                 
               </section>
-
+    
             <main class="col-9 offset-2 ml-sm-auto px-md-4 py-4">
                 <form action="/cadastrar_produto" method="post">
                     <div class="row mt-3 mb-5 ">
@@ -87,21 +85,21 @@
                                 <label for="estilo" class="form-label">Categoria:</label>
                                 <select title="selectproduto" aria-label="Default select example" class="form-control me-2" name="estilo" id="estilo">
                                     <option value="bg-danger0" class="bg-danger0">Selecione</option>
-                                    <option value="bg-danger1" class="bg-danger1">Mercearia</option>
-                                    <option value="bg-danger2" class="bg-danger2">Carnes</option>
-                                    <option value="bg-danger3" class="bg-danger3">Legumes e Frutas</option>
-                                    <option value="bg-danger4" class="bg-danger4">Frios</option>
-                                    <option value="bg-danger5" class="bg-danger5">Bebidas Não Alcoólicas</option>
-                                    <option value="bg-danger6" class="bg-danger6">Bebidas Alcoólicas</option>
-                                    <option value="bg-danger7" class="bg-danger7">Higiene</option>
-                                    <option value="bg-danger8" class="bg-danger8">Limpeza</option>
-                                    <option value="bg-danger9" class="bg-danger9">Utilidades Domésticas</option>
-                                    <option value="bg-danger10" class="bg-danger10">Livros</option>
-                                    <option value="bg-danger11" class="bg-danger11">Presentes</option>
-
+                                    <option value="bg-danger1" class="bg-danger1">Alimentos</option>
+                                    <option value="bg-danger2" class="bg-danger2">Brinquedos</option>
+                                    <option value="bg-danger3" class="bg-danger3">Medicamentos</option>
+                                    <option value="bg-danger4" class="bg-danger4">Acessórios</option>
+                                    <option value="bg-danger5" class="bg-danger5">Higiene</option>
+                                    <option value="bg-danger6" class="bg-danger6">Roupas</option>
+                                    <option value="bg-danger7" class="bg-danger7">Camas e Casinhas</option>
+                                    <option value="bg-danger8" class="bg-danger8">Coleiras e Guias</option>
+                                    <option value="bg-danger9" class="bg-danger9">Caixas de Transporte</option>
+                                    <option value="bg-danger10" class="bg-danger10">Produtos para Treinamento</option>
+                                    <option value="bg-danger11" class="bg-danger11">Outros</option>
+    
                                 </select>
-
-
+    
+    
                             </div>
                         </div>
                         <div class="col-6">
@@ -109,13 +107,13 @@
                                 <label for="produto" class="form-label">Produto:</label>
                                 <input type="text" class="form-control" id="produto" name="produto">
                             </div>
-
+    
                         </div>
                         <div class="col-6">
                             <div class="mt-1">
                                 <label for="categoria" class="form-label">Orçamento:</label>
                                 <input type="text" class="form-control" id="categoria" name="categoria">
-
+    
                                
                             </div>
                         </div>
@@ -135,10 +133,10 @@
                         <button type="submit" class="btn btn-success1 w-100 mt-2">Adicionar</button>
                     </div>
                 </form>
-
-
+    
+    
                 <div class="row my-4">
-
+    
                     {{#produtos}}
                 <div class="card {{estilo}} mb-3" style="max-width: 18rem;">
                     <div class="card-header {{estilo}}">{{produto}}</div>
@@ -178,21 +176,21 @@
             
                         <div class="informacoes-maps">
                             <ion-icon name="mail-outline"></ion-icon>
-                            <p>smarthlist@gmail.com</p>
+                            <p>petplace@gmail.com</p>
                         </div>
                     </div>
-
+    
                     <div class="suport-footer">
-                        <h4>Suport</h4>
-
+                        <h4>Suporte</h4>
+    
                         <div class="suporte">
-                            Cookies Policy
+                            Política de Cookies
                         </div>
-
+    
                         <div class="suporte">
-                            Terms of Service
+                            Termos de Serviço
                         </div>
-
+    
                         <div>
                             <button>Fale Conosco <ion-icon name="logo-whatsapp"></ion-icon></button>
                         </div>
@@ -203,6 +201,7 @@
               </footer>
         </div>
     </div>
+    
 
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
