@@ -9,5 +9,6 @@ router.get('/home', autenticacaoController.verificarAutenticacao, produtoControl
 router.post('/cadastrar_produto', autenticacaoController.verificarAutenticacao, produtoController.cadastrarProduto);
 router.post('/editar_produto/:id', autenticacaoController.verificarAutenticacao,produtoController.editarProduto);
 router.post('/remover_produto/:id', autenticacaoController.verificarAutenticacao, produtoController.removerProduto);
+router.post('/adicionar_ao_carrinho/:id', autenticacaoController.verificarAutenticacao, produtoController.adicionarAoCarrinho);
 
 module.exports = router;

@@ -35,6 +35,11 @@ const Produto = database.define('produto', {
     estilo: {
         type: Sequelize.STRING,
         allowNull: false
+    },
+    carrinho: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
+        allowNull: false
     }
 });
 

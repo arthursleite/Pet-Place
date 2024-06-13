@@ -61,7 +61,7 @@ function editarProduto(req, res) {
 }
 
 function removerProduto(req, res) {
-    const produtoId = req.params.id; 
+    const produtoId = req.params.id;
     Produto.destroy({
         where: {
             id: produtoId,
@@ -76,10 +76,44 @@ function removerProduto(req, res) {
     });
 }
 
+function listarCarrinho(req, res) {
+    Produto.findAll({
+        where: {
+            id_usuario: req.session.usuario.id,
+            indicador_ativo: 1,
+            carrinho: 1
+        }
+    }).then((produtos) => {
+        res.render('home.html', { produtosCarrinho });
+    }).catch((erro_recupera_produtos) => {
+        res.render('home.html', { erro_recupera_produtos });
+    });
+}
+
+function adicionarAoCarrinho(req, res) {
+    console.log("Entrou no carrinho");
+    let idProduto = req.params.id;
+    let novosDados = {
+        carrinho: true
+    }
+
+    Produto.update(novosDados, { where: { id: idProduto } })
+        .then(() => {
+            res.redirect('/home');
+        })
+        .catch((err) => {
+            console.log(err);
+            res.json({ mensagem: "Erro ao adicionar o produto ao carrinho." });
+        });
+    console.log("Adicionando produto ao carrinho...");
+}
+
 module.exports = {
     indexView,
     listarProduto,
     cadastrarProduto,
     editarProduto,
-    removerProduto
+    removerProduto,
+    listarCarrinho,
+    adicionarAoCarrinho
 }
