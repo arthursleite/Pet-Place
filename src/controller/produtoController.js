@@ -4,19 +4,30 @@ function indexView(req, res) {
     res.render('index.html');
 }
 
-function listarProduto(req, res) {
-
-    Produto.findAll({
+function listarProdutoECarrinho(req, res) {
+    const usuarioId = req.session.usuario.id;
+    const produtosPromise = Produto.findAll({
         where: {
-            id_usuario: req.session.usuario.id,
+            id_usuario: usuarioId,
             indicador_ativo: 1
         }
-    }).then((produtos) => {
-        res.render('home.html', { produtos });
-    }).catch((erro_recupera_produtos) => {
-        res.render('home.html', { erro_recupera_produtos });
     });
 
+    const produtosCarrinhoPromise = Produto.findAll({
+        where: {
+            id_usuario: usuarioId,
+            indicador_ativo: 1,
+            carrinho: 1
+        }
+    });
+
+    Promise.all([produtosPromise, produtosCarrinhoPromise])
+        .then(([produtos, produtosCarrinho]) => {
+            res.render('home.html', { produtos, produtosCarrinho });
+        })
+        .catch((erro) => {
+            res.render('home.html', { erro });
+        });
 }
 
 function cadastrarProduto(req, res) {
@@ -76,20 +87,6 @@ function removerProduto(req, res) {
     });
 }
 
-function listarCarrinho(req, res) {
-    Produto.findAll({
-        where: {
-            id_usuario: req.session.usuario.id,
-            indicador_ativo: 1,
-            carrinho: 1
-        }
-    }).then((produtos) => {
-        res.render('home.html', { produtosCarrinho });
-    }).catch((erro_recupera_produtos) => {
-        res.render('home.html', { erro_recupera_produtos });
-    });
-}
-
 function adicionarAoCarrinho(req, res) {
     console.log("Entrou no carrinho");
     let idProduto = req.params.id;
@@ -110,10 +107,9 @@ function adicionarAoCarrinho(req, res) {
 
 module.exports = {
     indexView,
-    listarProduto,
+    listarProdutoECarrinho,
     cadastrarProduto,
     editarProduto,
     removerProduto,
-    listarCarrinho,
     adicionarAoCarrinho
 }

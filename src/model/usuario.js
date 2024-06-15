@@ -24,6 +24,11 @@ const Usuario = database.define('usuario', {
     data_nascimento: {
         type: Sequelize.STRING,
         allowNull: false
+    },
+    admin: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
     }
 });
 

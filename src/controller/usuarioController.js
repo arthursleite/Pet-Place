@@ -5,7 +5,8 @@ function cadastrarUsuario(req, res) {
         email: req.body.email,
         senha: req.body.senha,
         nome: req.body.nome,
-        data_nascimento: req.body.data_nascimento
+        data_nascimento: req.body.data_nascimento,
+        admin: req.body.admin === '1' // Converte o valor para booleano
     }
     
     Usuario.create(usuario).then(()=>{
