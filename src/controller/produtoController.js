@@ -4,42 +4,52 @@ function indexView(req, res) {
     res.render('index.html');
 }
 
-function listarProdutoECarrinho(req, res) {
-    const usuarioId = req.session.usuario.id;
-    const produtosPromise = Produto.findAll({
+function listarProdutos(req, res) {
+    const isAdmin = req.session.usuario ? req.session.usuario.admin : false;
+
+    Produto.findAll({
         where: {
-            id_usuario: usuarioId,
             indicador_ativo: 1
         }
+    }).then((produtos) => {
+        res.render('home.html', { produtos, isAdmin });
+    }).catch((erro_recupera_produtos) => {
+        res.render('home.html', { erro_recupera_produtos, isAdmin });
     });
+}
 
-    const produtosCarrinhoPromise = Produto.findAll({
+function listarCarrinho(req, res) {
+    if (!req.session.usuario) {
+        return res.status(403).render("home.html", { erro: "Você precisa estar logado para ver o carrinho." });
+    }
+    console.log("REQ USUARIO: ", req.session.usuario);
+    Produto.findAll({
         where: {
-            id_usuario: usuarioId,
-            indicador_ativo: 1,
-            carrinho: 1
+            id_usuario: req.session.usuario.id,
+            carrinho: 1,
+            indicador_ativo: 1
         }
+    }).then((produtosCarrinho) => {
+        res.render('carrinho.html', { produtosCarrinho });
+    }).catch((erro_recupera_produtos_carrinho) => {
+        res.render('carrinho.html', { erro_recupera_produtos_carrinho });
     });
-
-    Promise.all([produtosPromise, produtosCarrinhoPromise])
-        .then(([produtos, produtosCarrinho]) => {
-            res.render('home.html', { produtos, produtosCarrinho });
-        })
-        .catch((erro) => {
-            res.render('home.html', { erro });
-        });
 }
 
 function cadastrarProduto(req, res) {
+    if (!req.session.usuario || !req.session.usuario.admin) {
+        return res.status(403).render("home.html", { erro: "Você não tem permissão para adicionar produtos." });
+    }
+
     let produto = {
         produto: req.body.produto,
         id_usuario: req.session.usuario.id,
-        categoria: req.body.categoria, //orcamento
+        categoria: req.body.categoria,
         quantidade: req.body.quantidade,
         data_vencimento: req.body.data_vencimento,
         indicador_ativo: 1,
         estilo: req.body.estilo
-    }
+    };
 
     Produto.create(produto).then(() => {
         res.redirect('/home');
@@ -48,18 +58,17 @@ function cadastrarProduto(req, res) {
         let erro_cadastrar_produto = true;
         res.render("home.html", { erro_cadastrar_produto });
     });
-
 }
 
 function editarProduto(req, res) {
-    console.log("Editando produto...")
+    console.log("Editando produto...");
     let idProduto = req.params.id;
     let novosDados = {
-        produto: req.params.produto,
-        categoria: req.params.categoria,
-        quantidade: req.params.quantidade,
-        data_vencimento: req.params.data_vencimento,
-    }
+        produto: req.body.produto,
+        categoria: req.body.categoria,
+        quantidade: req.body.quantidade,
+        data_vencimento: req.body.data_vencimento,
+    };
 
     Produto.update(novosDados, { where: { id: idProduto } })
         .then(() => {
@@ -72,11 +81,14 @@ function editarProduto(req, res) {
 }
 
 function removerProduto(req, res) {
+    if (!req.session.usuario || !req.session.usuario.admin) {
+        return res.status(403).render("home.html", { erro: "Você não tem permissão para remover produtos." });
+    }
+
     const produtoId = req.params.id;
     Produto.destroy({
         where: {
-            id: produtoId,
-            id_usuario: req.session.usuario.id
+            id: produtoId
         }
     }).then(() => {
         res.redirect('/home');
@@ -88,28 +100,63 @@ function removerProduto(req, res) {
 }
 
 function adicionarAoCarrinho(req, res) {
-    console.log("Entrou no carrinho");
-    let idProduto = req.params.id;
-    let novosDados = {
-        carrinho: true
+    if (!req.session.usuario) {
+        return res.status(403).render("home.html", { erro: "Você precisa estar logado para adicionar ao carrinho." });
     }
 
-    Produto.update(novosDados, { where: { id: idProduto } })
-        .then(() => {
-            res.redirect('/home');
-        })
-        .catch((err) => {
-            console.log(err);
-            res.json({ mensagem: "Erro ao adicionar o produto ao carrinho." });
-        });
-    console.log("Adicionando produto ao carrinho...");
+    const produtoId = req.params.id;
+    Produto.update(
+        { carrinho: 1, id_usuario: req.session.usuario.id },
+        { where: { id: produtoId } }
+    ).then(() => {
+        res.redirect('/home');
+    }).catch((err) => {
+        console.log(err);
+        res.json({ mensagem: "Erro ao adicionar o produto ao carrinho." });
+    });
+}
+
+function removerDoCarrinho(req, res) {
+    if (!req.session.usuario) {
+        return res.status(403).render("home.html", { erro: "Você precisa estar logado para remover do carrinho." });
+    }
+
+    const produtoId = req.params.id;
+    Produto.update(
+        { carrinho: 0 },
+        { where: { id: produtoId, id_usuario: req.session.usuario.id } }
+    ).then(() => {
+        res.redirect('/home');
+    }).catch((err) => {
+        console.log(err);
+        res.json({ mensagem: "Erro ao remover o produto do carrinho." });
+    });
+}
+
+function finalizarCompra(req, res) {
+    if (!req.session.usuario) {
+        return res.status(403).render("home.html", { erro: "Você precisa estar logado para finalizar a compra." });
+    }
+
+    Produto.update(
+        { carrinho: 0 },
+        { where: { id_usuario: req.session.usuario.id, carrinho: 1 } }
+    ).then(() => {
+        res.redirect('/home');
+    }).catch((err) => {
+        console.log(err);
+        res.json({ mensagem: "Erro ao finalizar a compra." });
+    });
 }
 
 module.exports = {
     indexView,
-    listarProdutoECarrinho,
+    listarProdutos,
+    listarCarrinho,
     cadastrarProduto,
     editarProduto,
     removerProduto,
-    adicionarAoCarrinho
-}
+    adicionarAoCarrinho,
+    removerDoCarrinho,
+    finalizarCompra
+};

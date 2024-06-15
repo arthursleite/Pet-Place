@@ -1,18 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PetPlace</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="/public/img/logo1.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-
 <body>
-
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
@@ -75,31 +72,28 @@
             </section>
 
             <section id="sobre-nos" class="content-2">
-
                 <h1>Sobre nós</h1>
                 <div class="textos-content-2">
                     <p>A Pet Place é mais do que um aplicativo de lista de compras para pets; é o seu parceiro
                         inteligente na organização de todas as suas necessidades de compra para o seu pet. Quer esteja
                         planejando a alimentação semanal, preparando-se para um evento especial ou apenas mantendo sua
                         casa abastecida, a Pet Place está aqui para simplificar o processo.</p>
-
                     <p>Transforme suas compras em experiências inteligentes com a Pet Place. Descubra o poder da
                         organização simplificada e comece a desfrutar de uma vida sem complicações. Baixe agora e faça
                         de cada compra uma experiência inteligente!</p>
                 </div>
-
             </section>
 
             <main class="col-9 offset-2 ml-sm-auto px-md-4 py-4">
+                <!-- Adicionar produto (visível apenas para administradores) -->
+                {{#isAdmin}}
                 <form action="/cadastrar_produto" method="post">
-                    <div class="row mt-3 mb-5 ">
-                        <h1 id="novaLista" class="h1 pb-2 mb-7 text-dangerGrenn border-bottom border-dangerGrenn">Nova
-                            Lista</h1>
+                    <div class="row mt-3 mb-5">
+                        <h1 id="novaLista" class="h1 pb-2 mb-7 text-dangerGrenn border-bottom border-dangerGrenn">Nova Lista</h1>
                         <div class="col-12">
                             <div class="mt-1">
                                 <label for="estilo" class="form-label">Categoria:</label>
-                                <select title="selectproduto" aria-label="Default select example"
-                                    class="form-control me-2" name="estilo" id="estilo">
+                                <select title="selectproduto" aria-label="Default select example" class="form-control me-2" name="estilo" id="estilo">
                                     <option value="bg-danger0" class="bg-danger0">Selecione</option>
                                     <option value="bg-danger1" class="bg-danger1">Alimentos</option>
                                     <option value="bg-danger2" class="bg-danger2">Brinquedos</option>
@@ -120,14 +114,11 @@
                                 <label for="produto" class="form-label">Produto:</label>
                                 <input type="text" class="form-control" id="produto" name="produto">
                             </div>
-
                         </div>
                         <div class="col-6">
                             <div class="mt-1">
                                 <label for="categoria" class="form-label">Orçamento:</label>
                                 <input type="text" class="form-control" id="categoria" name="categoria">
-
-
                             </div>
                         </div>
                         <div class="col-12">
@@ -139,17 +130,16 @@
                         <div class="col-12">
                             <div class="mt-1">
                                 <label for="data_vencimento" class="form-label">Data Vencimento:</label>
-                                <textarea class="form-control" rows="3" id="data_vencimento"
-                                    name="data_vencimento"></textarea>
+                                <textarea class="form-control" rows="3" id="data_vencimento" name="data_vencimento"></textarea>
                             </div>
                         </div>
                         <button type="submit" id="botao_adicionar" class="btn btn-success1 w-100 mt-2">Adicionar</button>
                     </div>
                 </form>
-
+                {{/isAdmin}}
 
                 <div class="row my-4">
-                    <p>Lista de produtos</p>
+                    <h2>Lista de produtos</h2>
                     {{#produtos}}
                     <div class="card {{estilo}} mb-3" style="max-width: 18rem;">
                         <div class="card-header {{estilo}}">{{produto}}</div>
@@ -157,90 +147,68 @@
                             <h5 class="card-text">Orçamento: {{categoria}}</h5>
                             <h5 class="card-text">Quantidade: {{quantidade}}</h5>
                             <p class="card-text">Data de Vencimento: {{data_vencimento}}</p>
+                            <!-- Botão de adicionar ao carrinho (visível para todos os usuários logados) -->
                             <form action="/adicionar_ao_carrinho/{{id}}" method="post">
-                                <button type="submit" id="botao_adicionar_ao_carrinho" class="btn btn-danger5">Adicionar ao carrinho</button>
+                                <button type="submit" id="botao_adicionar_ao_carrinho" class="btn btn-primary">Adicionar ao Carrinho</button>
                             </form>
-                            <form action="/editar_produto/{{id}}" method="post">
-                                <a href="./editarProduto.html">
-                                    <button type="submit" id="botao_editar" class="btn btn-danger5">Editar</button>
-                                </a>
-                            </form>
+                            <!-- Botões de ação (visíveis apenas para administradores) -->
+                            {{#isAdmin}}
                             <form action="/remover_produto/{{id}}" method="post">
                                 <button type="submit" id="botao_remover_produto" class="btn btn-danger5">Remover</button>
                             </form>
+                            {{/isAdmin}}
                         </div>
                     </div>
                     {{/produtos}}
-
-                    {{#erro}}
-                    <p>erroooooooooooooooooooooooooooooooooooooooooo</p>
-                    {{/erro}}
-
-                    <p>Carrinho de compras</p>
-                    {{#produtosCarrinho}}
-                    <div class="card {{estilo}} mb-3" style="max-width: 18rem;">
-                        <div class="card-header {{estilo}}">{{produto}}</div>
-                        <div class="card-body">
-                            <h5 class="card-text">Orçamento: {{categoria}}</h5>
-                            <h5 class="card-text">Quantidade: {{quantidade}}</h5>
-                            <p class="card-text">Data de Vencimento: {{data_vencimento}}</p>
-                            <form action="/remover_do_carrinho/{{id}}" method="post">
-                                <button type="submit" id="botao_remover_do_carrinho" class="btn btn-danger5">Remover do carrinho</button>
-                            </form>
-                        </div>
-                    </div>
-                    {{/produtosCarrinho}}
                 </div>
 
-
+                <div class="row my-4">
+                    <a href="/carrinho" class="btn btn-success w-100">Ver Carrinho</a>
+                </div>
             </main>
-            <footer>
-                <section id="footer">
-                    <div class="contatos-footer">
-                        <h4>Contatos</h4>
-
-                        <div class="informacoes-maps">
-                            <ion-icon name="location"></ion-icon>
-                            <p>Rua Pereira Estéfano, Vila da Saúde, São Paulo, 04144070</p>
-                        </div>
-
-                        <div class="informacoes-maps">
-                            <ion-icon name="logo-whatsapp"></ion-icon>
-                            <p>(61)98547-1236</p>
-                        </div>
-
-                        <div class="informacoes-maps">
-                            <ion-icon name="mail-outline"></ion-icon>
-                            <p>petplace@gmail.com</p>
-                        </div>
-                    </div>
-
-                    <div class="suport-footer">
-                        <h4>Suporte</h4>
-
-                        <div class="suporte">
-                            Política de Cookies
-                        </div>
-
-                        <div class="suporte">
-                            Termos de Serviço
-                        </div>
-
-                        <div>
-                            <button>Fale Conosco <ion-icon name="logo-whatsapp"></ion-icon></button>
-                        </div>
-                    </div>
-
-
-                </section>
-            </footer>
         </div>
     </div>
 
+    <footer>
+        <section id="footer">
+            <div class="contatos-footer">
+                <h4>Contatos</h4>
 
+                <div class="informacoes-maps">
+                    <ion-icon name="location"></ion-icon>
+                    <p>Rua Pereira Estéfano, Vila da Saúde, São Paulo, 04144070</p>
+                </div>
+
+                <div class="informacoes-maps">
+                    <ion-icon name="logo-whatsapp"></ion-icon>
+                    <p>(61)98547-1236</p>
+                </div>
+
+                <div class="informacoes-maps">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <p>petplace@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="suport-footer">
+                <h4>Suporte</h4>
+
+                <div class="suporte">
+                    Política de Cookies
+                </div>
+
+                <div class="suporte">
+                    Termos de Serviço
+                </div>
+
+                <div>
+                    <button>Fale Conosco <ion-icon name="logo-whatsapp"></ion-icon></button>
+                </div>
+            </div>
+        </section>
+    </footer>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
-
 </html>
