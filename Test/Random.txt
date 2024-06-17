@@ -1,0 +1,345 @@
+# python
+# import random
+# import string
+
+# def generate_random_email(domain="example.com"):
+#     chars = string.ascii_lowercase + string.digits
+#     random_email = ''.join(random.choice(chars) for i in range(10)) + "@" + domain
+#     return random_email
+
+# def generate_random_invalid_email(domain="invalid-domain.com"):
+#     chars = string.ascii_uppercase + string.digits
+#     random_email = ''.join(random.choice(chars) for i in range(10)) + "@" + domain
+#     return random_email
+
+# def generate_random_weak_password(length=8):
+#     chars = string.ascii_letters + string.digits
+#     random_password = ''.join(random.choice(chars) for i in range(length))
+#     return random_password
+
+# def generate_random_strong_password(length=12):
+#     chars = string.ascii_letters + string.digits
+#     random_password = ''.join(random.choice(chars) for i in range(length))
+#     return random_password
+
+# def generate_random_very_strong_password(length=16):
+#     chars = string.ascii_letters + string.digits
+#     random_password = ''.join(random.choice(chars) for i in range(length))
+#     return random_password
+
+# def generate_random_birthdate():
+#     day = str(random.randint(1, 28))
+#     month = str(random.randint(1, 12))
+#     year = str(random.randint(1900, 2022))
+#     return f"{day}-{month}-{year}"
+
+# *** Settings ***
+# Library  SeleniumLibrary
+# Suite Setup  Open Browser  ${BASE_URL}  Chrome
+# Suite Teardown  Close Browser
+
+# *** Variables ***
+# ${BASE_URL}  http://localhost:8080
+# ${VALID_EMAIL}  ${generate_random_email()}
+# ${INVALID_EMAIL}  ${generate_random_invalid_email()}
+# ${WEAK_PASSWORD}  ${generate_random_weak_password()}
+# ${STRONG_PASSWORD}  ${generate_random_strong_password()}
+# ${VERY_STRONG_PASSWORD}  ${generate_random_very_strong_password()}
+# ${VALID_BIRTHDATE}  ${generate_random_birthdate()}
+# ${EXISTING_EMAIL}  ${EXISTING_EMAIL}
+
+# *** Keywords ***
+# Generate Random Email
+#     [Return]  ${VALID_EMAIL}
+
+# Generate Random Invalid Email
+#     [Return]  ${INVALID_EMAIL}
+
+# Generate Random Weak Password
+#     [Return]  ${WEAK_PASSWORD}
+
+# Generate Random Strong Password
+#     [Return]  ${STRONG_PASSWORD}
+
+# Generate Random Very Strong Password
+#     [Return]  ${VERY_STRONG_PASSWORD}
+
+# Generate Random Birthdate
+#     [Return]  ${VALID_BIRTHDATE}
+
+# *** Test Cases ***
+# Login with valid credentials
+#     Go To    ${BASE_URL}
+#     Input Text  id=email_login  ${VALID_EMAIL}
+#     Input Text  id=senha_login  ${STRONG_PASSWORD}
+#     Click Button  id=botao-acessar
+#     # Add assertions here
+
+# Login with invalid credentials
+#     Go To    ${BASE_URL}
+#     Input Text  id=email_login  ${INVALID_EMAIL}
+#     Input Text  id=senha_login  ${INVALID_PASSWORD}
+#     Click Button  id=botao-acessar
+#     # Add assertions here
+
+# Login with empty credentials
+#     Go To    ${BASE_URL}
+#     Click Button  id=email_login
+#     # Add assertions here
+
+# Register with valid credentials
+#     Go To    ${BASE_URL}
+#     Input Text  id=email_cadastro  ${VALID_EMAIL}
+#     Input Text  id=senha_cadastro  ${STRONG_PASSWORD}
+#     Input Text  id=nome_cadastro  José Augusto Testeson
+#     Input Text  id=birthdate  ${VALID_BIRTHDATE}
+#     Select From List By Label    id=admin    admin
+#     Click Button  id=botao-cadastrar
+
+
+
+
+
+
+
+
+
+
+
+# # import random
+# # import string
+
+# # def generate_random_email():
+# #     chars = string.ascii_lowercase + string.digits
+# #     random_email = ''.join(random.choice(chars) for i in range(10)) + '@example.com'
+# #     return random_email
+
+# # def generate_random_invalid_email():
+# #     chars = string.ascii_uppercase + string.digits
+# #     random_email = ''.join(random.choice(chars) for i in range(10)) + '@example.com'
+# #     return random_email
+
+# # def generate_random_weak_password():
+# #     chars = string.ascii_letters + string.digits
+# #     random_password = ''.join
+
+
+# # *** Settings ***
+# # Library  SeleniumLibrary
+# # Suite Setup  Open Browser  ${BASE_URL}  Firefox
+# # Suite Teardown  Close Browser
+
+# # *** Variables ***
+# # ${BASE_URL}  http://localhost:8080
+# # ${valid_email}  ${VALID_EMAIL}
+# # ${invalid_email}  ${INVALID_EMAIL}
+# # ${weak_password}  ${WEAK_PASSWORD}
+# # ${strong_password}  ${STRONG_PASSWORD}
+# # ${very_strong_password}  ${VERY_STRONG_PASSWORD}
+# # ${valid_birthdate}  ${VALID_BIRTHDATE}
+# # ${existing_email}  ${EXISTING_EMAIL}
+
+
+
+# # *** Keywords ***
+# # Generate Random Email
+# #     [Return]  ${VALID_EMAIL}
+
+# # Generate Random Invalid Email
+# #     [Return]  ${INVALID_EMAIL}
+
+# # Generate Random Weak Password
+# #     [Return]  ${WEAK_PASSWORD}
+
+# # Generate Random Strong Password
+# #     [Return]  ${STRONG_PASSWORD}
+
+# # Generate Random Very Strong Password
+# #     [Return]  ${VERY_STRONG_PASSWORD}
+
+# # Generate Random Birthdate
+# #     [Return]  ${VALID_BIRTHDATE}
+
+# # *** Test Cases ***
+# # Login with valid credentials
+# #     Go To    ${BASE_URL}
+# #     Input Text  id=email_login  ${VALID_EMAIL}
+# #     Input Text  id=senha_login  ${STRONG_PASSWORD}
+# #     Click Button  id=botao-acessar
+# #     # Add assertions here
+
+# # Login with invalid credentials
+# #     Maximize Browser Window
+# #     Maximize Browser Window
+# #     Go To    ${BASE_URL}
+# #     Input Text  id=email_login  ${INVALID_EMAIL}
+# #     Input Text  id=senha_login  ${INVALID_PASSWORD}
+# #     Click Button  id=botao-acessate
+# #     # Add assertions here
+
+# # Login with empty credentials
+# #     Maximize Browser Window
+# #     Go To    ${BASE_URL}
+# #     Click Button  id=email_login
+# #     # Add assertions here
+
+# # Register with valid credentials
+# #     Maximize Browser Window
+# #     Go To    ${BASE_URL}
+# #     Input Text  id=email_cadastro  ${VALID_EMAIL}
+# #     Input Text  id=senha_cadastro  ${STRONG_PASSWORD}
+# #     Input Text  id=nome_cadastro  José Augusto Testeson
+# #     Input Text  id=birthdate  ${VALID_BIRTHDATE}
+# #     Select From List By Label    id=admin    admin
+# #     Click Button  id=botao-cadastrar
+# #     # Add assertions here
+
+# # Register with invalid credentials
+# #     Maximize Browser Window
+# #     Go To    ${BASE_URL}
+# #     Click Button  id=register_button
+# #     Input Text  id=email  ${INVALID_EMAIL}
+# #     Input Text  id=password  ${INVALID_PASSWORD}
+# #     Input Text  id=name  ${VALID_NAME}
+# #     Input Text  id=birthdate  ${VALID_BIRTHDATE}
+# #     Click Button  id=register_button
+# #     # Add assertions here
+
+# # Register with empty credentials
+# #     Maximize Browser Window
+# #     Go To    ${BASE_URL}
+# #     Click Button  id=register_button
+# #     Click Button  id=register_button
+# #     # Add assertions here
+
+# # Register with existing email
+# #     Maximize Browser Window
+# #     Go To    ${BASE_URL}
+# #     Click Button  id=register_button
+# #     Input Text  id=email  ${EXISTING_EMAIL}
+# #     Input Text  id=password  ${STRONG_PASSWORD}
+# #     Input Text  id=name  ${VALID_NAME}
+# #     Input Text  id=birthdate  ${VALID_BIRTHDATE}
+# #     Click Button  id=register_button
+# #     # Add assertions here
+
+# # Check password strength
+# #     Maximize Browser Window
+# #     Go To    ${BASE_URL}
+# #     Click Button  id=register_button
+# #     Input Text  id=email  ${VALID_EMAIL}
+# #     Input Text  id=password  ${WEAK_PASSWORD}
+# #     # Add assertions here
+
+# # Check password strength
+# #     Maximize Browser Window
+# #     Go To    ${BASE_URL}
+# #     Click Button  id=register_button
+# #     Input Text  id=email  ${VALID_EMAIL}
+# #     Input Text  id=password  ${STRONG_PASSWORD}
+# #     # Add assertions here
+
+# # Check password strength
+# #     Maximize Browser Window
+# #     Go To    ${BASE_URL}
+# #     Click Button  id=register_button
+# #     Input Text  id=email  ${VALID_EMAIL}
+# #     Input Text  id=password  ${VERY_STRONG_PASSWORD}
+# #     # Add assertions here
+
+# # # *** Settings ***
+# # # Library  SeleniumLibrary
+# # # Suite Setup  Open Browser  ${BASE_URL}  Firefox
+# # # Suite Teardown  Close Browser
+
+# # # *** Variables ***
+# # # ${BASE_URL}  http://localhost:8080
+
+# # # *** Test Cases ***
+# # # Login with valid credentials
+# # #     Maximize Browser Window
+# # #     Go To    ${BASE_URL}
+# # #     Input Text  id=email_login  teste01@email.com
+# # #     Input Text  id=senha_login  Senha@teste321456
+# # #     Click Button  id=botao-acessar
+# # #     # Add assertions here
+
+# # # Login with invalid credentials
+# # #     Maximize Browser Window
+# # #     Go To    ${BASE_URL}
+# # #     Input Text  id=email_login  invalid_email
+# # #     Input Text  id=senha_login  invalid_password
+# # #     Click Button  id=botao-acessar
+# # #     # Add assertions here
+
+# # # Login with empty credentials
+# # #     Maximize Browser Window
+# # #     Go To    ${BASE_URL}
+# # #     Click Button  id=email_login
+# # #     # Add assertions here
+
+# # # Register with valid credentials
+# # #     Maximize Browser Window
+# # #     Go To    ${BASE_URL}
+# # #     Input Text  id=email_cadastro  teste02@email.com
+# # #     Input Text  id=senha_cadastro  Senha@teste321456
+# # #     Input Text  id=nome_cadastro  José Augusto Testeson
+# # #     Input Text  id=birthdate  05051998
+# # #     Select From List By Label    id=admin    admin
+# # #     Click Button  id=botao-cadastrar
+# # #     # Add assertions here
+
+# # # Register with invalid credentials
+# # #     Maximize Browser Window
+# # #     Go To    ${BASE_URL}
+# # #     Click Button  id=register_button
+# # #     Input Text  id=email  invalid_email
+# # #     Input Text  id=password  invalid_password
+# # #     Input Text  id=name  valid_name
+# # #     Input Text  id=birthdate  valid_birthdate
+# # #     Click Button  id=register_button
+# # #     # Add assertions here
+
+# # # Register with empty credentials
+# # #     Maximize Browser Window
+# # #     Go To    ${BASE_URL}
+# # #     Click Button  id=register_button
+# # #     Click Button  id=register_button
+# # #     # Add assertions here
+
+# # # Register with existing email
+# # #     Maximize Browser Window
+# # #     Go To    ${BASE_URL}
+# # #     Click Button  id=register_button
+# # #     Input Text  id=email  existing_email
+# # #     Input Text  id=password  valid_password
+# # #     Input Text  id=name  valid_name
+# # #     Input Text  id=birthdate  valid_birthdate
+# # #     Click Button  id=register_button
+# # #     # Add assertions here
+
+# # # Check password strength
+# # #     Maximize Browser Window
+# # #     Go To    ${BASE_URL}
+# # #     Click Button  id=register_button
+# # #     Input Text  id=email  valid_email
+# # #     Input Text  id=password  weak_password
+# # #     # Add assertions here
+
+# # # Check password strength
+# # #     Maximize Browser Window
+# # #     Go To    ${BASE_URL}
+# # #     Click Button  id=register_button
+# # #     Input Text  id=email  valid_email
+# # #     Input Text  id=password  strong_password
+# # #     # Add assertions here
+
+# # # Check password strength
+# # #     Maximize Browser Window
+# # #     Go To    ${BASE_URL}
+# # #     Click Button  id=register_button
+# # #     Input Text  id=email  valid_email
+# # #     Input Text  id=password  very_strong_password
+# # #      Add assertions here
+
+
