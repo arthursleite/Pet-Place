@@ -1,193 +1,897 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0.1 (Python 3.9.18 on darwin)" generated="2024-06-17T11:07:31.753250" rpa="false" schemaversion="5">
+<robot generator="Robot 7.0.1 (Python 3.9.18 on darwin)" generated="2024-06-17T11:10:14.437933" rpa="false" schemaversion="5">
 <suite id="s1" name="Pet-Place" source="/Users/jao/Developer/Pet-Place">
 <suite id="s1-s1" name="Test" source="/Users/jao/Developer/Pet-Place/Test">
 <suite id="s1-s1-s1" name="Main" source="/Users/jao/Developer/Pet-Place/Test/main.robot">
 <kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
-<msg time="2024-06-17T11:07:31.862815" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:8080'.</msg>
+<msg time="2024-06-17T11:10:14.545590" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:8080'.</msg>
 <arg>${BASE_URL}</arg>
 <arg>Chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-06-17T11:07:31.862600" elapsed="0.939356"/>
+<status status="PASS" start="2024-06-17T11:10:14.545406" elapsed="1.556428"/>
 </kw>
-<test id="s1-s1-s1-t1" name="Register User with valid credentials" line="122">
+<test id="s1-s1-s1-t1" name="Login with valid Admin credentials" line="54">
 <kw name="Generate Random Email">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-06-17T11:07:32.807402" level="INFO">${email} = 39v976o6sb@example.com</msg>
+<msg time="2024-06-17T11:10:16.109254" level="INFO">${email} = ddrmek4s98@example.com</msg>
 <var>${email}</var>
 <arg>Utils.generate_random_email()</arg>
 <arg>modules=Utils</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-06-17T11:07:32.806805" elapsed="0.000796"/>
+<status status="PASS" start="2024-06-17T11:10:16.108847" elapsed="0.000539"/>
 </kw>
 <return>
 <value>${email}</value>
-<status status="PASS" start="2024-06-17T11:07:32.807692" elapsed="0.000202"/>
+<status status="PASS" start="2024-06-17T11:10:16.109555" elapsed="0.000155"/>
 </return>
-<msg time="2024-06-17T11:07:32.808143" level="INFO">${valid_email} = 39v976o6sb@example.com</msg>
+<msg time="2024-06-17T11:10:16.109872" level="INFO">${valid_email} = ddrmek4s98@example.com</msg>
 <var>${valid_email}</var>
-<status status="PASS" start="2024-06-17T11:07:32.805896" elapsed="0.002326"/>
+<status status="PASS" start="2024-06-17T11:10:16.108487" elapsed="0.001466"/>
 </kw>
 <kw name="Generate Random Strong Password">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-06-17T11:07:32.809918" level="INFO">${password} = ?yWsn-ai~'Th</msg>
+<msg time="2024-06-17T11:10:16.110967" level="INFO">${password} = aMq:q'&lt;J~UOt</msg>
 <var>${password}</var>
 <arg>Utils.generate_random_strong_password()</arg>
 <arg>modules=Utils</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-06-17T11:07:32.808936" elapsed="0.001388"/>
+<status status="PASS" start="2024-06-17T11:10:16.110656" elapsed="0.000476"/>
 </kw>
 <return>
 <value>${password}</value>
-<status status="PASS" start="2024-06-17T11:07:32.810423" elapsed="0.000086"/>
+<status status="PASS" start="2024-06-17T11:10:16.111213" elapsed="0.000105"/>
 </return>
-<msg time="2024-06-17T11:07:32.810634" level="INFO">${strong_password} = ?yWsn-ai~'Th</msg>
+<msg time="2024-06-17T11:10:16.111420" level="INFO">${strong_password} = aMq:q'&lt;J~UOt</msg>
 <var>${strong_password}</var>
-<status status="PASS" start="2024-06-17T11:07:32.808472" elapsed="0.002228"/>
+<status status="PASS" start="2024-06-17T11:10:16.110265" elapsed="0.001217"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:16.111864" level="INFO">Opening url 'http://localhost:8080'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-06-17T11:10:16.111686" elapsed="0.016454"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:10:17.130265" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:10:16.128456" elapsed="1.002011"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:17.131155" level="INFO">Typing text 'teste01@email.com' into text field 'id=email_login'.</msg>
+<arg>id=email_login</arg>
+<arg>teste01@email.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-17T11:10:17.130711" elapsed="0.099288"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:10:18.231157" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:10:17.230237" elapsed="1.001133"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:18.231950" level="INFO">Typing text 'Senha@teste321456' into text field 'id=senha_login'.</msg>
+<arg>id=senha_login</arg>
+<arg>Senha@teste321456</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-17T11:10:18.231666" elapsed="0.043467"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:10:19.277651" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:10:18.275428" elapsed="1.002761"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:19.279410" level="INFO">Clicking button 'id=botao-acessar'.</msg>
+<arg>id=botao-acessar</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-17T11:10:19.278824" elapsed="0.117656"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:10:21.413249" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:10:19.409641" elapsed="2.004082"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:21.427787" level="INFO">Element 'id=sobre-nos' is displayed.</msg>
+<arg>id=sobre-nos</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-17T11:10:21.414220" elapsed="0.013843"/>
+</kw>
+<status status="PASS" start="2024-06-17T11:10:16.105162" elapsed="5.323414"/>
+</test>
+<test id="s1-s1-s1-t2" name="Login with valid User credentials" line="67">
+<kw name="Generate Random Email">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-17T11:10:21.431416" level="INFO">${email} = 86gmawffdq@example.com</msg>
+<var>${email}</var>
+<arg>Utils.generate_random_email()</arg>
+<arg>modules=Utils</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-17T11:10:21.430907" elapsed="0.000598"/>
+</kw>
+<return>
+<value>${email}</value>
+<status status="PASS" start="2024-06-17T11:10:21.431604" elapsed="0.000095"/>
+</return>
+<msg time="2024-06-17T11:10:21.431840" level="INFO">${valid_email} = 86gmawffdq@example.com</msg>
+<var>${valid_email}</var>
+<status status="PASS" start="2024-06-17T11:10:21.430383" elapsed="0.001523"/>
+</kw>
+<kw name="Generate Random Strong Password">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-17T11:10:21.432837" level="INFO">${password} = NW5&lt;H5g|kKp}</msg>
+<var>${password}</var>
+<arg>Utils.generate_random_strong_password()</arg>
+<arg>modules=Utils</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-17T11:10:21.432602" elapsed="0.000301"/>
+</kw>
+<return>
+<value>${password}</value>
+<status status="PASS" start="2024-06-17T11:10:21.432989" elapsed="0.000061"/>
+</return>
+<msg time="2024-06-17T11:10:21.433191" level="INFO">${strong_password} = NW5&lt;H5g|kKp}</msg>
+<var>${strong_password}</var>
+<status status="PASS" start="2024-06-17T11:10:21.432268" elapsed="0.000993"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:21.433900" level="INFO">Opening url 'http://localhost:8080'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-06-17T11:10:21.433509" elapsed="0.012572"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:10:22.448599" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:10:21.446353" elapsed="1.002458"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:22.449412" level="INFO">Typing text 'teste03@email.com' into text field 'id=email_login'.</msg>
+<arg>id=email_login</arg>
+<arg>teste03@email.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-17T11:10:22.449120" elapsed="0.039083"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:10:23.489376" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:10:22.488473" elapsed="1.001975"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:23.492164" level="INFO">Typing text 'Senha@teste321456' into text field 'id=senha_login'.</msg>
+<arg>id=senha_login</arg>
+<arg>Senha@teste321456</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-17T11:10:23.491476" elapsed="0.044945"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:10:24.539640" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:10:23.537328" elapsed="1.002504"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:24.540552" level="INFO">Clicking button 'id=botao-acessar'.</msg>
+<arg>id=botao-acessar</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-17T11:10:24.540287" elapsed="0.052240"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:10:26.593699" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:10:24.592826" elapsed="2.001106"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:26.603625" level="INFO">Element 'id=sobre-nos' is displayed.</msg>
+<arg>id=sobre-nos</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-17T11:10:26.594200" elapsed="0.009614"/>
+</kw>
+<status status="PASS" start="2024-06-17T11:10:21.428937" elapsed="5.175228"/>
+</test>
+<test id="s1-s1-s1-t3" name="Login with unregisterd credentials" line="80">
+<kw name="Generate Random Invalid Email">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-17T11:10:26.606035" level="INFO">${email} = XHN0VHTLIE@invalid-domain.com</msg>
+<var>${email}</var>
+<arg>Utils.generate_random_invalid_email()</arg>
+<arg>modules=Utils</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-17T11:10:26.605754" elapsed="0.000398"/>
+</kw>
+<return>
+<value>${email}</value>
+<status status="PASS" start="2024-06-17T11:10:26.606245" elapsed="0.000064"/>
+</return>
+<msg time="2024-06-17T11:10:26.606414" level="INFO">${invalid_email} = XHN0VHTLIE@invalid-domain.com</msg>
+<var>${invalid_email}</var>
+<status status="PASS" start="2024-06-17T11:10:26.605448" elapsed="0.001025"/>
+</kw>
+<kw name="Generate Random Weak Password">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-17T11:10:26.608299" level="INFO">${password} = Cx5IgBBx</msg>
+<var>${password}</var>
+<arg>Utils.generate_random_weak_password()</arg>
+<arg>modules=Utils</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-17T11:10:26.607625" elapsed="0.000749"/>
+</kw>
+<return>
+<value>${password}</value>
+<status status="PASS" start="2024-06-17T11:10:26.608467" elapsed="0.000065"/>
+</return>
+<msg time="2024-06-17T11:10:26.608637" level="INFO">${weak_password} = Cx5IgBBx</msg>
+<var>${weak_password}</var>
+<status status="PASS" start="2024-06-17T11:10:26.606832" elapsed="0.001870"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:26.609149" level="INFO">Opening url 'http://localhost:8080'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-06-17T11:10:26.609001" elapsed="0.013805"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:10:27.623909" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:10:26.623083" elapsed="1.001017"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:27.624726" level="INFO">Typing text 'XHN0VHTLIE@invalid-domain.com' into text field 'id=email_login'.</msg>
+<arg>id=email_login</arg>
+<arg>${invalid_email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-17T11:10:27.624354" elapsed="0.042488"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:10:28.669610" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:10:27.667342" elapsed="1.002468"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:28.670488" level="INFO">Typing text 'Cx5IgBBx' into text field 'id=senha_login'.</msg>
+<arg>id=senha_login</arg>
+<arg>${weak_password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-17T11:10:28.670183" elapsed="0.034545"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:10:29.705910" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:10:28.704999" elapsed="1.001102"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:29.706711" level="INFO">Clicking button 'id=botao-acessar'.</msg>
+<arg>id=botao-acessar</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-17T11:10:29.706391" elapsed="0.039030"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:10:31.747028" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:10:29.745679" elapsed="2.001616"/>
+</kw>
+<kw name="Element Should Not Be Visible" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:31.751937" level="INFO">Element 'id=sobre-nos' did not exist.</msg>
+<arg>id=sobre-nos</arg>
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<status status="PASS" start="2024-06-17T11:10:31.747592" elapsed="0.004467"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:31.766867" level="INFO">Element 'css=.alert-danger' contains text 'Erro ao autenticar usuário!'.</msg>
+<arg>css=.alert-danger</arg>
+<arg>Erro ao autenticar usuário!</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2024-06-17T11:10:31.752261" elapsed="0.014779"/>
+</kw>
+<status status="PASS" start="2024-06-17T11:10:26.604875" elapsed="5.162485"/>
+</test>
+<test id="s1-s1-s1-t4" name="Login with empty credentials" line="94">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:31.768479" level="INFO">Opening url 'http://localhost:8080'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-06-17T11:10:31.768261" elapsed="0.010288"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:10:32.781197" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:10:31.778792" elapsed="1.002601"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:32.782041" level="INFO">Clicking button 'id=botao-acessar'.</msg>
+<arg>id=botao-acessar</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-17T11:10:32.781708" elapsed="0.037853"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:10:34.821542" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:10:32.819909" elapsed="2.001822"/>
+</kw>
+<kw name="Element Should Not Be Visible" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:34.826268" level="INFO">Element 'id=sobre-nos' did not exist.</msg>
+<arg>id=sobre-nos</arg>
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<status status="PASS" start="2024-06-17T11:10:34.821997" elapsed="0.004402"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:34.834673" level="INFO">Element 'css=.alert-danger' contains text 'Erro ao autenticar usuário!'.</msg>
+<arg>css=.alert-danger</arg>
+<arg>Erro ao autenticar usuário!</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2024-06-17T11:10:34.826723" elapsed="0.008226"/>
+</kw>
+<status status="PASS" start="2024-06-17T11:10:31.767678" elapsed="3.067548"/>
+</test>
+<test id="s1-s1-s1-t5" name="Register Admin with valid credentials" line="102">
+<kw name="Generate Random Email">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-17T11:10:34.837172" level="INFO">${email} = jivafrv68u@example.com</msg>
+<var>${email}</var>
+<arg>Utils.generate_random_email()</arg>
+<arg>modules=Utils</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-17T11:10:34.836830" elapsed="0.000409"/>
+</kw>
+<return>
+<value>${email}</value>
+<status status="PASS" start="2024-06-17T11:10:34.837385" elapsed="0.000073"/>
+</return>
+<msg time="2024-06-17T11:10:34.837602" level="INFO">${valid_email} = jivafrv68u@example.com</msg>
+<var>${valid_email}</var>
+<status status="PASS" start="2024-06-17T11:10:34.836426" elapsed="0.001407"/>
+</kw>
+<kw name="Generate Random Strong Password">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-17T11:10:34.838790" level="INFO">${password} = ?!!-U%84i|iQ</msg>
+<var>${password}</var>
+<arg>Utils.generate_random_strong_password()</arg>
+<arg>modules=Utils</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-17T11:10:34.838566" elapsed="0.000282"/>
+</kw>
+<return>
+<value>${password}</value>
+<status status="PASS" start="2024-06-17T11:10:34.838915" elapsed="0.000055"/>
+</return>
+<msg time="2024-06-17T11:10:34.839061" level="INFO">${strong_password} = ?!!-U%84i|iQ</msg>
+<var>${strong_password}</var>
+<status status="PASS" start="2024-06-17T11:10:34.838228" elapsed="0.000883"/>
 </kw>
 <kw name="Generate Random Birthdate">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-06-17T11:07:32.813592" level="INFO">${birthdate} = 10-12-1985</msg>
+<msg time="2024-06-17T11:10:34.839588" level="INFO">${birthdate} = 24-03-1942</msg>
 <var>${birthdate}</var>
 <arg>Utils.generate_random_birthdate()</arg>
 <arg>modules=Utils</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-06-17T11:07:32.813021" elapsed="0.001229"/>
+<status status="PASS" start="2024-06-17T11:10:34.839402" elapsed="0.000233"/>
 </kw>
 <return>
 <value>${birthdate}</value>
-<status status="PASS" start="2024-06-17T11:07:32.814417" elapsed="0.000270"/>
+<status status="PASS" start="2024-06-17T11:10:34.839693" elapsed="0.000046"/>
 </return>
-<msg time="2024-06-17T11:07:32.814850" level="INFO">${valid_birthdate} = 10-12-1985</msg>
+<msg time="2024-06-17T11:10:34.839881" level="INFO">${valid_birthdate} = 24-03-1942</msg>
 <var>${valid_birthdate}</var>
-<status status="PASS" start="2024-06-17T11:07:32.812698" elapsed="0.002307"/>
+<status status="PASS" start="2024-06-17T11:10:34.839237" elapsed="0.000705"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2024-06-17T11:07:32.816858" level="INFO">Opening url 'http://localhost:8080'</msg>
+<msg time="2024-06-17T11:10:34.840444" level="INFO">Opening url 'http://localhost:8080'</msg>
 <arg>${BASE_URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2024-06-17T11:07:32.815244" elapsed="0.020553"/>
+<status status="PASS" start="2024-06-17T11:10:34.840123" elapsed="0.011670"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-06-17T11:07:33.837766" level="INFO">Slept 1 second.</msg>
+<msg time="2024-06-17T11:10:35.853232" level="INFO">Slept 1 second.</msg>
 <arg>1s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-06-17T11:07:32.836194" elapsed="1.002311"/>
+<status status="PASS" start="2024-06-17T11:10:34.852169" elapsed="1.001270"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-06-17T11:07:33.840015" level="INFO">Typing text '39v976o6sb@example.com' into text field 'id=email_cadastro'.</msg>
+<msg time="2024-06-17T11:10:35.854162" level="INFO">Typing text 'jivafrv68u@example.com' into text field 'id=email_cadastro'.</msg>
 <arg>id=email_cadastro</arg>
 <arg>${valid_email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-06-17T11:07:33.839172" elapsed="0.086932"/>
+<status status="PASS" start="2024-06-17T11:10:35.853807" elapsed="0.041644"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-06-17T11:07:34.926884" level="INFO">Slept 1 second.</msg>
+<msg time="2024-06-17T11:10:36.896091" level="INFO">Slept 1 second.</msg>
 <arg>1s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-06-17T11:07:33.926372" elapsed="1.000751"/>
+<status status="PASS" start="2024-06-17T11:10:35.895676" elapsed="1.000595"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-06-17T11:07:34.927875" level="INFO">Typing text '?yWsn-ai~'Th' into text field 'id=senha_cadastro'.</msg>
+<msg time="2024-06-17T11:10:36.896926" level="INFO">Typing text '?!!-U%84i|iQ' into text field 'id=senha_cadastro'.</msg>
 <arg>id=senha_cadastro</arg>
 <arg>${strong_password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-06-17T11:07:34.927505" elapsed="0.072481"/>
+<status status="PASS" start="2024-06-17T11:10:36.896574" elapsed="0.037185"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-06-17T11:07:36.001495" level="INFO">Slept 1 second.</msg>
+<msg time="2024-06-17T11:10:37.935007" level="INFO">Slept 1 second.</msg>
 <arg>1s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-06-17T11:07:35.000259" elapsed="1.001442"/>
+<status status="PASS" start="2024-06-17T11:10:36.934000" elapsed="1.002088"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-06-17T11:07:36.002432" level="INFO">Typing text 'José Augusto Testeson' into text field 'id=nome_cadastro'.</msg>
+<msg time="2024-06-17T11:10:37.937600" level="INFO">Typing text 'José Augusto Testeson' into text field 'id=nome_cadastro'.</msg>
 <arg>id=nome_cadastro</arg>
 <arg>José Augusto Testeson</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-06-17T11:07:36.002094" elapsed="0.044943"/>
+<status status="PASS" start="2024-06-17T11:10:37.937028" elapsed="0.051277"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-06-17T11:07:37.048226" level="INFO">Slept 1 second.</msg>
+<msg time="2024-06-17T11:10:38.989151" level="INFO">Slept 1 second.</msg>
 <arg>1s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-06-17T11:07:36.047310" elapsed="1.001125"/>
+<status status="PASS" start="2024-06-17T11:10:37.988709" elapsed="1.000699"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-06-17T11:07:37.049207" level="INFO">Typing text '10-12-1985' into text field 'id=data_nascimento'.</msg>
+<msg time="2024-06-17T11:10:38.990076" level="INFO">Typing text '24-03-1942' into text field 'id=data_nascimento'.</msg>
 <arg>id=data_nascimento</arg>
 <arg>${valid_birthdate}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-06-17T11:07:37.048760" elapsed="0.038492"/>
+<status status="PASS" start="2024-06-17T11:10:38.989777" elapsed="0.036273"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-06-17T11:07:38.088454" level="INFO">Slept 1 second.</msg>
+<msg time="2024-06-17T11:10:40.027967" level="INFO">Slept 1 second.</msg>
 <arg>1s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-06-17T11:07:37.087497" elapsed="1.001251"/>
+<status status="PASS" start="2024-06-17T11:10:39.026321" elapsed="1.001834"/>
 </kw>
 <kw name="Select From List By Label" owner="SeleniumLibrary">
-<msg time="2024-06-17T11:07:38.089456" level="INFO">Selecting options from selection list 'id=admin' by label Usuário.</msg>
+<msg time="2024-06-17T11:10:40.028719" level="INFO">Selecting options from selection list 'id=admin' by label Administrador.</msg>
 <arg>id=admin</arg>
-<arg>Usuário</arg>
+<arg>Administrador</arg>
 <doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<status status="PASS" start="2024-06-17T11:07:38.089144" elapsed="0.024974"/>
+<status status="PASS" start="2024-06-17T11:10:40.028403" elapsed="0.042002"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-06-17T11:07:39.114948" level="INFO">Slept 1 second.</msg>
+<msg time="2024-06-17T11:10:41.072418" level="INFO">Slept 1 second.</msg>
 <arg>1s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-06-17T11:07:38.114379" elapsed="1.001022"/>
+<status status="PASS" start="2024-06-17T11:10:40.070648" elapsed="1.001959"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-06-17T11:07:39.116256" level="INFO">Clicking button 'id=botao-cadastrar'.</msg>
+<msg time="2024-06-17T11:10:41.073243" level="INFO">Clicking button 'id=botao-cadastrar'.</msg>
 <arg>id=botao-cadastrar</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-06-17T11:07:39.115892" elapsed="0.049643"/>
+<status status="PASS" start="2024-06-17T11:10:41.072934" elapsed="0.045584"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-06-17T11:07:41.168852" level="INFO">Slept 2 seconds.</msg>
+<msg time="2024-06-17T11:10:43.121001" level="INFO">Slept 2 seconds.</msg>
 <arg>2s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-06-17T11:07:39.166221" elapsed="2.002854"/>
+<status status="PASS" start="2024-06-17T11:10:41.118988" elapsed="2.002233"/>
 </kw>
 <kw name="Element Should Contain" owner="SeleniumLibrary">
-<msg time="2024-06-17T11:07:41.183676" level="INFO">Element 'css=.alert.alert-success' contains text 'Usuário cadastrado com sucesso!'.</msg>
+<msg time="2024-06-17T11:10:43.132175" level="INFO">Element 'css=.alert.alert-success' contains text 'Usuário cadastrado com sucesso!'.</msg>
 <arg>css=.alert.alert-success</arg>
 <arg>Usuário cadastrado com sucesso!</arg>
 <doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<status status="PASS" start="2024-06-17T11:07:41.169459" elapsed="0.014382"/>
+<status status="PASS" start="2024-06-17T11:10:43.121756" elapsed="0.010550"/>
 </kw>
-<status status="PASS" start="2024-06-17T11:07:32.804375" elapsed="8.379764"/>
+<status status="PASS" start="2024-06-17T11:10:34.835535" elapsed="8.297082"/>
+</test>
+<test id="s1-s1-s1-t6" name="Register User with valid credentials" line="122">
+<kw name="Generate Random Email">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-17T11:10:43.134612" level="INFO">${email} = bzg5yhkjin@example.com</msg>
+<var>${email}</var>
+<arg>Utils.generate_random_email()</arg>
+<arg>modules=Utils</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-17T11:10:43.134335" elapsed="0.000356"/>
+</kw>
+<return>
+<value>${email}</value>
+<status status="PASS" start="2024-06-17T11:10:43.134777" elapsed="0.000197"/>
+</return>
+<msg time="2024-06-17T11:10:43.135248" level="INFO">${valid_email} = bzg5yhkjin@example.com</msg>
+<var>${valid_email}</var>
+<status status="PASS" start="2024-06-17T11:10:43.133890" elapsed="0.001571"/>
+</kw>
+<kw name="Generate Random Strong Password">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-17T11:10:43.136116" level="INFO">${password} = oR_^I9\,]5([</msg>
+<var>${password}</var>
+<arg>Utils.generate_random_strong_password()</arg>
+<arg>modules=Utils</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-17T11:10:43.135891" elapsed="0.000286"/>
+</kw>
+<return>
+<value>${password}</value>
+<status status="PASS" start="2024-06-17T11:10:43.136253" elapsed="0.000050"/>
+</return>
+<msg time="2024-06-17T11:10:43.136400" level="INFO">${strong_password} = oR_^I9\,]5([</msg>
+<var>${strong_password}</var>
+<status status="PASS" start="2024-06-17T11:10:43.135659" elapsed="0.000793"/>
+</kw>
+<kw name="Generate Random Birthdate">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-17T11:10:43.137020" level="INFO">${birthdate} = 03-09-1904</msg>
+<var>${birthdate}</var>
+<arg>Utils.generate_random_birthdate()</arg>
+<arg>modules=Utils</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-17T11:10:43.136812" elapsed="0.000272"/>
+</kw>
+<return>
+<value>${birthdate}</value>
+<status status="PASS" start="2024-06-17T11:10:43.137159" elapsed="0.000044"/>
+</return>
+<msg time="2024-06-17T11:10:43.137347" level="INFO">${valid_birthdate} = 03-09-1904</msg>
+<var>${valid_birthdate}</var>
+<status status="PASS" start="2024-06-17T11:10:43.136611" elapsed="0.000810"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:43.138278" level="INFO">Opening url 'http://localhost:8080'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-06-17T11:10:43.138067" elapsed="0.012710"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:10:44.153433" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:10:43.151018" elapsed="1.002603"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:44.154385" level="INFO">Typing text 'bzg5yhkjin@example.com' into text field 'id=email_cadastro'.</msg>
+<arg>id=email_cadastro</arg>
+<arg>${valid_email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-17T11:10:44.153966" elapsed="0.036131"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:10:45.190673" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:10:44.190366" elapsed="1.000533"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:45.191498" level="INFO">Typing text 'oR_^I9\,]5([' into text field 'id=senha_cadastro'.</msg>
+<arg>id=senha_cadastro</arg>
+<arg>${strong_password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-17T11:10:45.191179" elapsed="0.035202"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:10:46.227306" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:10:45.226661" elapsed="1.000831"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:46.228314" level="INFO">Typing text 'José Augusto Testeson' into text field 'id=nome_cadastro'.</msg>
+<arg>id=nome_cadastro</arg>
+<arg>José Augusto Testeson</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-17T11:10:46.228005" elapsed="0.050042"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:10:47.279924" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:10:46.278502" elapsed="1.001640"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:47.280780" level="INFO">Typing text '03-09-1904' into text field 'id=data_nascimento'.</msg>
+<arg>id=data_nascimento</arg>
+<arg>${valid_birthdate}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-17T11:10:47.280473" elapsed="0.036070"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:10:48.317812" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:10:47.316786" elapsed="1.001221"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:48.318906" level="INFO">Selecting options from selection list 'id=admin' by label Usuário.</msg>
+<arg>id=admin</arg>
+<arg>Usuário</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2024-06-17T11:10:48.318395" elapsed="0.028609"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:10:49.347676" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:10:48.347258" elapsed="1.000663"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:49.348518" level="INFO">Clicking button 'id=botao-cadastrar'.</msg>
+<arg>id=botao-cadastrar</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-17T11:10:49.348243" elapsed="0.040117"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:10:51.389062" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:10:49.388602" elapsed="2.000648"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:51.397987" level="INFO">Element 'css=.alert.alert-success' contains text 'Usuário cadastrado com sucesso!'.</msg>
+<arg>css=.alert.alert-success</arg>
+<arg>Usuário cadastrado com sucesso!</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2024-06-17T11:10:51.389624" elapsed="0.008584"/>
+</kw>
+<status status="PASS" start="2024-06-17T11:10:43.133157" elapsed="8.265534"/>
+</test>
+<test id="s1-s1-s1-t7" name="Register with existing email" line="142">
+<kw name="Generate Random Strong Password">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-17T11:10:51.400249" level="INFO">${password} = f&amp;*bcoEDR,}Z</msg>
+<var>${password}</var>
+<arg>Utils.generate_random_strong_password()</arg>
+<arg>modules=Utils</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-17T11:10:51.399978" elapsed="0.000356"/>
+</kw>
+<return>
+<value>${password}</value>
+<status status="PASS" start="2024-06-17T11:10:51.400415" elapsed="0.000076"/>
+</return>
+<msg time="2024-06-17T11:10:51.400612" level="INFO">${strong_password} = f&amp;*bcoEDR,}Z</msg>
+<var>${strong_password}</var>
+<status status="PASS" start="2024-06-17T11:10:51.399710" elapsed="0.000956"/>
+</kw>
+<kw name="Generate Random Birthdate">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-17T11:10:51.402314" level="INFO">${birthdate} = 13-01-1943</msg>
+<var>${birthdate}</var>
+<arg>Utils.generate_random_birthdate()</arg>
+<arg>modules=Utils</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-17T11:10:51.402033" elapsed="0.000384"/>
+</kw>
+<return>
+<value>${birthdate}</value>
+<status status="PASS" start="2024-06-17T11:10:51.402501" elapsed="0.000056"/>
+</return>
+<msg time="2024-06-17T11:10:51.402652" level="INFO">${valid_birthdate} = 13-01-1943</msg>
+<var>${valid_birthdate}</var>
+<status status="PASS" start="2024-06-17T11:10:51.401837" elapsed="0.001612"/>
+</kw>
+<kw name="Register User">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:51.404189" level="INFO">Opening url 'http://localhost:8080'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-06-17T11:10:51.404018" elapsed="0.011139"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:10:52.417933" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:10:51.415352" elapsed="1.002794"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:52.418691" level="INFO">Typing text 'teste01@email.com' into text field 'id=email_cadastro'.</msg>
+<arg>id=email_cadastro</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-17T11:10:52.418337" elapsed="0.040716"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:10:53.461807" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:10:52.459253" elapsed="1.002755"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:53.462554" level="INFO">Typing text 'f&amp;*bcoEDR,}Z' into text field 'id=senha_cadastro'.</msg>
+<arg>id=senha_cadastro</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-17T11:10:53.462200" elapsed="0.035257"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:10:54.499337" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:10:53.497648" elapsed="1.001879"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:54.499960" level="INFO">Typing text 'José Augusto Testeson' into text field 'id=nome_cadastro'.</msg>
+<arg>id=nome_cadastro</arg>
+<arg>José Augusto Testeson</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-17T11:10:54.499714" elapsed="0.041707"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:10:55.542635" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:10:54.541654" elapsed="1.001167"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:55.543365" level="INFO">Typing text '13-01-1943' into text field 'id=data_nascimento'.</msg>
+<arg>id=data_nascimento</arg>
+<arg>${birthdate}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-17T11:10:55.543009" elapsed="0.034526"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:10:56.579817" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:10:55.577807" elapsed="1.002239"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:56.580511" level="INFO">Selecting options from selection list 'id=admin' by label Administrador.</msg>
+<arg>id=admin</arg>
+<arg>Administrador</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2024-06-17T11:10:56.580239" elapsed="0.027441"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:10:57.608547" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:10:56.607870" elapsed="1.000867"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:57.609189" level="INFO">Clicking button 'id=botao-cadastrar'.</msg>
+<arg>id=botao-cadastrar</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-17T11:10:57.608910" elapsed="0.037201"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:10:59.647518" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:10:57.646316" elapsed="2.001621"/>
+</kw>
+<arg>teste01@email.com</arg>
+<arg>${strong_password}</arg>
+<arg>${valid_birthdate}</arg>
+<status status="PASS" start="2024-06-17T11:10:51.403732" elapsed="8.244432"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:10:59.648898" level="INFO">Opening url 'http://localhost:8080'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-06-17T11:10:59.648630" elapsed="0.010879"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:11:00.661095" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:10:59.659750" elapsed="1.001529"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:11:00.661893" level="INFO">Typing text 'teste01@email.com' into text field 'id=email_cadastro'.</msg>
+<arg>id=email_cadastro</arg>
+<arg>teste01@email.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-17T11:11:00.661631" elapsed="0.042924"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:11:01.705901" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:11:00.704811" elapsed="1.001280"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:11:01.706746" level="INFO">Typing text 'f&amp;*bcoEDR,}Z' into text field 'id=senha_cadastro'.</msg>
+<arg>id=senha_cadastro</arg>
+<arg>${strong_password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-17T11:11:01.706405" elapsed="0.036859"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:11:02.743853" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:11:01.743503" elapsed="1.000575"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:11:02.744911" level="INFO">Typing text 'José Augusto Testeson' into text field 'id=nome_cadastro'.</msg>
+<arg>id=nome_cadastro</arg>
+<arg>José Augusto Testeson</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-17T11:11:02.744563" elapsed="0.045364"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:11:03.792405" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:11:02.790185" elapsed="1.002419"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:11:03.793436" level="INFO">Typing text '13-01-1943' into text field 'id=data_nascimento'.</msg>
+<arg>id=data_nascimento</arg>
+<arg>${valid_birthdate}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-17T11:11:03.792934" elapsed="0.033373"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:11:04.826908" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:11:03.826547" elapsed="1.000554"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:11:04.827775" level="INFO">Selecting options from selection list 'id=admin' by label Administrador.</msg>
+<arg>id=admin</arg>
+<arg>Administrador</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2024-06-17T11:11:04.827434" elapsed="0.030155"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:11:05.858536" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:11:04.857850" elapsed="1.000875"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:11:05.859332" level="INFO">Clicking button 'id=botao-cadastrar'.</msg>
+<arg>id=botao-cadastrar</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-17T11:11:05.859016" elapsed="0.043553"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-17T11:11:07.903794" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-17T11:11:05.903044" elapsed="2.001313"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2024-06-17T11:11:07.917950" level="INFO">Element 'css=.alert-danger' contains text 'Erro ao cadastrar usuário!'.</msg>
+<arg>css=.alert-danger</arg>
+<arg>Erro ao cadastrar usuário!</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2024-06-17T11:11:07.904817" elapsed="0.013363"/>
+</kw>
+<status status="PASS" start="2024-06-17T11:10:51.399136" elapsed="16.519676"/>
 </test>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2024-06-17T11:07:41.184835" elapsed="0.070986"/>
+<status status="PASS" start="2024-06-17T11:11:07.920472" elapsed="0.089058"/>
 </kw>
-<status status="PASS" start="2024-06-17T11:07:31.781395" elapsed="9.474599"/>
+<status status="PASS" start="2024-06-17T11:10:14.465914" elapsed="53.543745"/>
 </suite>
-<status status="PASS" start="2024-06-17T11:07:31.780590" elapsed="9.476337"/>
+<status status="PASS" start="2024-06-17T11:10:14.465110" elapsed="53.545495"/>
 </suite>
-<status status="PASS" start="2024-06-17T11:07:31.768254" elapsed="9.489196"/>
+<status status="PASS" start="2024-06-17T11:10:14.453750" elapsed="53.557522"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="7" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Pet-Place">Pet-Place</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s1" name="Test">Pet-Place.Test</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="Main">Pet-Place.Test.Main</stat>
+<stat pass="7" fail="0" skip="0" id="s1" name="Pet-Place">Pet-Place</stat>
+<stat pass="7" fail="0" skip="0" id="s1-s1" name="Test">Pet-Place.Test</stat>
+<stat pass="7" fail="0" skip="0" id="s1-s1-s1" name="Main">Pet-Place.Test.Main</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2024-06-17T11:07:31.747725" level="WARN">Error in file '/Users/jao/Developer/Pet-Place/Test/main.robot' on line 14: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2024-06-17T11:07:31.747847" level="WARN">Error in file '/Users/jao/Developer/Pet-Place/Test/main.robot' on line 18: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2024-06-17T11:07:31.747902" level="WARN">Error in file '/Users/jao/Developer/Pet-Place/Test/main.robot' on line 22: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2024-06-17T11:07:31.747957" level="WARN">Error in file '/Users/jao/Developer/Pet-Place/Test/main.robot' on line 26: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2024-06-17T11:07:31.748008" level="WARN">Error in file '/Users/jao/Developer/Pet-Place/Test/main.robot' on line 30: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2024-06-17T11:07:31.748055" level="WARN">Error in file '/Users/jao/Developer/Pet-Place/Test/main.robot' on line 34: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2024-06-17T11:10:14.433365" level="WARN">Error in file '/Users/jao/Developer/Pet-Place/Test/main.robot' on line 14: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2024-06-17T11:10:14.433481" level="WARN">Error in file '/Users/jao/Developer/Pet-Place/Test/main.robot' on line 18: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2024-06-17T11:10:14.433532" level="WARN">Error in file '/Users/jao/Developer/Pet-Place/Test/main.robot' on line 22: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2024-06-17T11:10:14.433588" level="WARN">Error in file '/Users/jao/Developer/Pet-Place/Test/main.robot' on line 26: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2024-06-17T11:10:14.433643" level="WARN">Error in file '/Users/jao/Developer/Pet-Place/Test/main.robot' on line 30: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2024-06-17T11:10:14.433695" level="WARN">Error in file '/Users/jao/Developer/Pet-Place/Test/main.robot' on line 34: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
 </errors>
 </robot>
