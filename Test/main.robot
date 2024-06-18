@@ -51,12 +51,12 @@ Register User
     Sleep  2s
     # Add assertions to validate successful registration
 *** Test Cases ***
+
+#LogIn Test Cases 
 Login with valid Admin credentials
-    ${valid_email}=  Generate Random Email
-    ${strong_password}=  Generate Random Strong Password
     Go To    ${BASE_URL}
     Sleep  1s
-    Input Text  id=email_login  teste01@email.com
+    Input Text  id=email_login  contato@jaolima.com
     Sleep  1s
     Input Text  id=senha_login  Senha@teste321456
     Sleep  1s
@@ -65,8 +65,6 @@ Login with valid Admin credentials
     Element Should Be Visible  id=sobre-nos 
 
 Login with valid User credentials
-    ${valid_email}=  Generate Random Email
-    ${strong_password}=  Generate Random Strong Password
     Go To    ${BASE_URL}
     Sleep  1s
     Input Text  id=email_login  teste03@email.com
@@ -138,11 +136,10 @@ Register User with valid credentials
     Click Button  id=botao-cadastrar
     Sleep  2s
       Element Should Contain  css=.alert.alert-success  Usuário cadastrado com sucesso!
-      
+
 Register with existing email
     ${strong_password}=  Generate Random Strong Password
     ${valid_birthdate}=  Generate Random Birthdate
-    # Assuming we register the email first
     Register User    teste01@email.com  ${strong_password}  ${valid_birthdate}
     Go To    ${BASE_URL}
     Sleep  1s
@@ -160,5 +157,41 @@ Register with existing email
     Sleep  2s
     Element Should Contain  css=.alert-danger  Erro ao cadastrar usuário!
 
+#Homepage Test Cases
+# Add a Product to product page
+#     ${product}=  Evaluate  Utils.generate_random_product()  modules=Utils
+#     ${product_name}=  Set Variable  ${product["name"]}
+#     ${product_price}=  Set Variable  ${product["price"]}
+#     ${product_category}=  Set Variable  ${product["category"]}
+#     Go To    ${BASE_URL}
+#     Input Text  id=email_login  contato@jaolima.com
+#     Input Text  id=senha_login  Senha@teste321456
+#     Click Button  id=botao-acessar
+#     Element Should Be Visible  id=sobre-nos 
+#     Sleep    2s
+#     Input Text    id=produto    ${product_name}
+#     Input Text    id=preco    ${product_price}
+#     Input Text    id=categoria    ${product_category}    
+#     Sleep  2s
+#     Click Button    id=botao_adicionar
 
+# Add product to Cart 
+#     Go To    ${BASE_URL}
+#     Input Text  id=email_login  contato@jaolima.com
+#     Input Text  id=senha_login  Senha@teste321456
+#     Click Button  id=botao-acessar
+#     Element Should Be Visible  id=sobre-nos 
+#     Sleep    2s
+#     # Go to Product Page
+#     Click Link  text=Lista de Produtos
+#     # Wait for the page to load
+#     Sleep  2s
+#     # Add a product to the Cart
+#     Click Button  id=Adicionar-ao-carrinho-1
+#     # Verify that the product is in the Cart
+#     # Wait for the page to load
+#     Element Should Be Visible  xpath=//span[contains(text(), '1')]
 
+# Add multiple products to Cart
+
+# Shop Cart
