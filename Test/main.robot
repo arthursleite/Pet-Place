@@ -158,22 +158,26 @@ Register with existing email
     Element Should Contain  css=.alert-danger  Erro ao cadastrar usuário!
 
 #Homepage Test Cases
-# Add a Product to product page
-#     ${product}=  Evaluate  Utils.generate_random_product()  modules=Utils
-#     ${product_name}=  Set Variable  ${product["name"]}
-#     ${product_price}=  Set Variable  ${product["price"]}
-#     ${product_category}=  Set Variable  ${product["category"]}
-#     Go To    ${BASE_URL}
-#     Input Text  id=email_login  contato@jaolima.com
-#     Input Text  id=senha_login  Senha@teste321456
-#     Click Button  id=botao-acessar
-#     Element Should Be Visible  id=sobre-nos 
-#     Sleep    2s
-#     Input Text    id=produto    ${product_name}
-#     Input Text    id=preco    ${product_price}
-#     Input Text    id=categoria    ${product_category}    
-#     Sleep  2s
-#     Click Button    id=botao_adicionar
+Add a Product to product page
+    ${product}=  Evaluate  Utils.generate_random_product()  modules=Utils
+    ${product_name}=  Set Variable  ${product["name"]}
+    ${product_price}=  Set Variable  ${product["price"]}
+    ${product_category}=  Set Variable  ${product["category"]}
+    Go To    ${BASE_URL}
+    Input Text  id=email_login  contato@jaolima.com
+    Input Text  id=senha_login  Senha@teste321456
+    Click Button  id=botao-acessar
+    Element Should Be Visible  id=sobre-nos 
+    Sleep  1s
+    Scroll Element Into View  id=botao_adicionar
+    Sleep    1s
+    Input Text    id=produto    ${product_name}
+    Sleep  1s
+    Input Text    id=categoria    R$ ${product_price}
+    Sleep  1s
+    Select From List By Label   id=estilo    ${product_category}    
+    Sleep  2s
+    Click Button    id=botao_adicionar
 
 # Add product to Cart 
 #     Go To    ${BASE_URL}
