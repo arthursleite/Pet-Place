@@ -9,31 +9,31 @@ Suite Teardown  Close Browser
 ${BASE_URL}  http://localhost:8080
 
 *** Keywords ***
-Generate Random Email
+Gerar Email Aleatório
     ${email}=  Evaluate  Utils.generate_random_email()  modules=Utils
     [Return]  ${email}
 
-Generate Random Invalid Email
+Gerar Email Inválido
     ${email}=  Evaluate  Utils.generate_random_invalid_email()  modules=Utils
     [Return]  ${email}
 
-Generate Random Weak Password
+Gerar Senha Fraca
     ${password}=  Evaluate  Utils.generate_random_weak_password()  modules=Utils
     [Return]  ${password}
 
-Generate Random Strong Password
+Gerar Senha Forte
     ${password}=  Evaluate  Utils.generate_random_strong_password()  modules=Utils
     [Return]  ${password}
 
-Generate Random Very Strong Password
+Gerar Senha Muito Forte
     ${password}=  Evaluate  Utils.generate_random_very_strong_password()  modules=Utils
     [Return]  ${password}
 
-Generate Random Birthdate
+Gerar Data de Nascimento
     ${birthdate}=  Evaluate  Utils.generate_random_birthdate()  modules=Utils
     [Return]  ${birthdate}
 
-Register User
+Cadastrar Usuário
     [Arguments]  ${email}  ${password}  ${birthdate}
     Go To    ${BASE_URL}
     Sleep  1s
@@ -53,7 +53,7 @@ Register User
 *** Test Cases ***
 
 #LogIn Test Cases 
-Login with valid Admin credentials
+Login com credenciais válidas de Administrador
     Go To    ${BASE_URL}
     Sleep  1s
     Input Text  id=email_login  contato@jaolima.com
@@ -64,7 +64,7 @@ Login with valid Admin credentials
     Sleep  2s
     Element Should Be Visible  id=sobre-nos 
 
-Login with valid User credentials
+Login com credenciais válidas de Usuário
     Go To    ${BASE_URL}
     Sleep  1s
     Input Text  id=email_login  teste03@email.com
@@ -75,9 +75,9 @@ Login with valid User credentials
     Sleep  2s
     Element Should Be Visible  id=sobre-nos 
 
-Login with unregisterd credentials
-    ${invalid_email}=  Generate Random Invalid Email
-    ${weak_password}=  Generate Random Weak Password
+Login com credenciais não registradas
+    ${invalid_email}=  Gerar Email Inválido
+    ${weak_password}=  Gerar Senha Fraca
     Go To    ${BASE_URL}
     Sleep  1s
     Input Text  id=email_login  ${invalid_email}
@@ -89,7 +89,7 @@ Login with unregisterd credentials
     Element Should Not Be Visible  id=sobre-nos
     Element Should Contain  css=.alert-danger  Erro ao autenticar usuário!
                 
-Login with empty credentials
+Login com credenciais vazias
     Go To    ${BASE_URL}
     Sleep  1s
     Click Button  id=botao-acessar
@@ -97,7 +97,8 @@ Login with empty credentials
     Element Should Not Be Visible  id=sobre-nos
     Element Should Contain  css=.alert-danger  Erro ao autenticar usuário!
 
-Register Admin with valid credentials
+
+Cadastrar Administrador com credenciais válidas
     ${valid_email}=  Generate Random Email
     ${strong_password}=  Generate Random Strong Password
     ${valid_birthdate}=  Generate Random Birthdate
@@ -116,11 +117,11 @@ Register Admin with valid credentials
     Click Button  id=botao-cadastrar
     Sleep  2s
     Element Should Contain  css=.alert.alert-success  Usuário cadastrado com sucesso!
-
-Register User with valid credentials
-    ${valid_email}=  Generate Random Email
-    ${strong_password}=  Generate Random Strong Password
-    ${valid_birthdate}=  Generate Random Birthdate
+ 
+Cadastrar Usuário com credenciais válidas
+    ${valid_email}=  Gerar Email Aleatório
+    ${strong_password}=  Gerar Senha Forte
+    ${valid_birthdate}=  Gerar Data de Nascimento
     Go To    ${BASE_URL}
     Sleep  1s
     Input Text  id=email_cadastro  ${valid_email}
@@ -135,12 +136,12 @@ Register User with valid credentials
     Sleep  1s
     Click Button  id=botao-cadastrar
     Sleep  2s
-      Element Should Contain  css=.alert.alert-success  Usuário cadastrado com sucesso!
+    Element Should Contain  css=.alert.alert-success  Usuário cadastrado com sucesso!
 
-Register with existing email
-    ${strong_password}=  Generate Random Strong Password
-    ${valid_birthdate}=  Generate Random Birthdate
-    Register User    teste01@email.com  ${strong_password}  ${valid_birthdate}
+Cadastrar com email existente
+    ${strong_password}=  Gerar Senha Forte
+    ${valid_birthdate}=  Gerar Data de Nascimento
+    Cadastrar Usuário    teste01@email.com  ${strong_password}  ${valid_birthdate}
     Go To    ${BASE_URL}
     Sleep  1s
     Input Text  id=email_cadastro  teste01@email.com
@@ -158,7 +159,7 @@ Register with existing email
     Element Should Contain  css=.alert-danger  Erro ao cadastrar usuário!
 
 #Homepage Test Cases
-Add a Product to product page
+Adicionar Produto à página de produtos
     ${product}=  Evaluate  Utils.generate_random_product()  modules=Utils
     ${product_name}=  Set Variable  ${product["name"]}
     ${product_price}=  Set Variable  ${product["price"]}
@@ -179,23 +180,22 @@ Add a Product to product page
     Sleep  2s
     Click Button    id=botao_adicionar
 
-# Add product to Cart 
-#     Go To    ${BASE_URL}
-#     Input Text  id=email_login  contato@jaolima.com
-#     Input Text  id=senha_login  Senha@teste321456
-#     Click Button  id=botao-acessar
-#     Element Should Be Visible  id=sobre-nos 
-#     Sleep    2s
-#     # Go to Product Page
-#     Click Link  text=Lista de Produtos
-#     # Wait for the page to load
-#     Sleep  2s
-#     # Add a product to the Cart
-#     Click Button  id=Adicionar-ao-carrinho-1
-#     # Verify that the product is in the Cart
-#     # Wait for the page to load
-#     Element Should Be Visible  xpath=//span[contains(text(), '1')]
 
-# Add multiple products to Cart
+Adicionar Produto ao Carrinho
+    Go To    ${BASE_URL}
+    Input Text  id=email_login  contato@jaolima.com
+    Input Text  id=senha_login  Senha@teste321456
+    Click Button  id=botao-acessar
+    Element Should Be Visible  id=sobre-nos 
+    Sleep  1s
+    Scroll Element Into View  //a[@href='/carrinho'][contains(.,'Ver Carrinho')]
+    Sleep  2s
+    Click Button    (//button[@type='submit'][contains(@id,'carrinho')][contains(.,'Adicionar ao Carrinho')])[14] 
+    Sleep    1s
+    Scroll Element Into View  //a[@href='/carrinho'][contains(.,'Ver Carrinho')]
+    Sleep    1s
+    Click Element  //a[@href='/carrinho'][contains(.,'Ver Carrinho')]
+    Sleep    1s    
+    Element Should Be Visible     botao_remover_do_carrinho
 
-# Shop Cart
+# S
