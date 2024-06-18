@@ -198,4 +198,17 @@ Adicionar Produto ao Carrinho
     Sleep    1s    
     Element Should Be Visible     botao_remover_do_carrinho
 
-# S
+Finalizar Compra do Carrinho
+    Go To    ${BASE_URL}
+    Input Text  id=email_login  contato@jaolima.com
+    Input Text  id=senha_login  Senha@teste321456
+    Click Button  id=botao-acessar
+    Element Should Be Visible  id=sobre-nos 
+    Sleep  1s
+    Scroll Element Into View  //a[@href='/carrinho'][contains(.,'Ver Carrinho')]
+    Sleep  1s
+    Click Button    //a[@href='/carrinho'][contains(.,'Ver Carrinho')] 
+    Sleep    1s
+    Click Element  botao_finalizar_compra
+    Sleep    1s    
+    Element Should Be Visible  id=sobre-nos 
