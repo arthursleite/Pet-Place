@@ -1,8 +1,8 @@
 *** Settings ***
 Library  SeleniumLibrary
 Library  Collections
-Library  /Users/jao/Developer/Pet-Place/Test/Utils.py  WITH NAME  Utils
-Suite Setup  Open Browser  ${BASE_URL}  Chrome
+Library  Utils.py  WITH NAME  Utils
+Suite Setup  Open Browser  ${BASE_URL}  Chrome 
 Suite Teardown  Close Browser
 
 *** Variables ***
@@ -190,13 +190,13 @@ Adicionar Produto ao Carrinho
     Sleep  1s
     Scroll Element Into View  //a[@href='/carrinho'][contains(.,'Ver Carrinho')]
     Sleep  2s
-    Click Button    (//button[@type='submit'][contains(@id,'carrinho')][contains(.,'Adicionar ao Carrinho')])[14] 
+    Click Button    (//button[@type='submit'])[4]
     Sleep    1s
     Scroll Element Into View  //a[@href='/carrinho'][contains(.,'Ver Carrinho')]
     Sleep    1s
     Click Element  //a[@href='/carrinho'][contains(.,'Ver Carrinho')]
     Sleep    1s    
-    Element Should Be Visible     botao_remover_do_carrinho
+    Element Should Be Visible  //h2[contains(.,'Carrinho de compras')]
 
 Finalizar Compra do Carrinho
     Go To    ${BASE_URL}
@@ -207,7 +207,7 @@ Finalizar Compra do Carrinho
     Sleep  1s
     Scroll Element Into View  //a[@href='/carrinho'][contains(.,'Ver Carrinho')]
     Sleep  1s
-    Click Button    //a[@href='/carrinho'][contains(.,'Ver Carrinho')] 
+    Click Element    //a[@href='/carrinho'][contains(.,'Ver Carrinho')] 
     Sleep    1s
     Click Element  botao_finalizar_compra
     Sleep    1s    
